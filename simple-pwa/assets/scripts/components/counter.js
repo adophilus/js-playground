@@ -1,6 +1,4 @@
 class Counter extends HTMLElement {
-  declare private countEl: HTMLElement
-
   styleTemplate = `
   #root {
     display: flex;
@@ -33,7 +31,9 @@ class Counter extends HTMLElement {
   }
   `
 
-  constructor(private count: number = 0) {
+  count = 0
+
+  constructor() {
     super()
 
     const shadowRoot = this.attachShadow({ mode: "open" });
@@ -75,7 +75,7 @@ class Counter extends HTMLElement {
     this.incrementCount()
   }
 
-  private incrementCount() {
+  incrementCount() {
     this.count += 1
     this.countEl.innerText = this.count.toString()
   }
