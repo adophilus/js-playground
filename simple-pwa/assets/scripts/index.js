@@ -34,7 +34,7 @@ window.addEventListener('beforeinstallprompt', (event) => {
 
 window.addEventListener('load', async () => {
   if ('serviceWorker' in window.navigator) {
-    window.navigator.serviceWorker.register('/sw.js')
+    window.navigator.serviceWorker.register('/simple-pwa/sw.js')
   }
 })
 
