@@ -8,7 +8,7 @@ jobs:
       - name: Checkout current repo state
         uses: actions/checkout@v4
       - name: Upload simple-pwa
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           name: github-pages
           path: ./simple-pwa

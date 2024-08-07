@@ -34,13 +34,7 @@ window.addEventListener('beforeinstallprompt', (event) => {
 
 window.addEventListener('load', async () => {
   if ('serviceWorker' in window.navigator) {
-    const sw = await window.navigator.serviceWorker.getRegistration('/sw.js')
-    if (sw) {
-      sw.update()
-    }
-    else {
-      window.navigator.serviceWorker.register('/sw.js')
-    }
+    window.navigator.serviceWorker.register('/sw.js')
   }
 })
 
