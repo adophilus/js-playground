@@ -1,14 +1,14 @@
 {
   "name": "Counter",
-  "start_url": "/",
+  "start_url": "/js-playground/simple-pwa",
   "icons": [
     {
-      "src": "/simple-pwa/public/icons/logo-192x192.svg",
+      "src": "/js-playground/simple-pwa/public/icons/logo-192x192.svg",
       "sizes": "192x192",
       "type": "image/svg+xml"
     },
     {
-      "src": "/simple-pwa/public/icons/logo-512x512.svg",
+      "src": "/js-playground/simple-pwa/public/icons/logo-512x512.svg",
       "sizes": "512x512",
       "type": "image/svg+xml"
     }
