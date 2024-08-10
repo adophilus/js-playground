@@ -1,10 +1,10 @@
 const STATIC_ASSETS = [
-  '/simple-pwa/',
-  '/simple-pwa/index.html',
-  '/simple-pwa/assets/scripts/index.js',
-  '/simple-pwa/assets/scripts/components/counter.js',
-  '/simple-pwa/assets/styles/index.css',
-  '/simple-pwa/assets/styles/reset.css',
+  '/js-playground/simple-pwa/',
+  '/js-playground/simple-pwa/index.html',
+  '/js-playground/simple-pwa/assets/scripts/index.js',
+  '/js-playground/simple-pwa/assets/scripts/components/counter.js',
+  '/js-playground/simple-pwa/assets/styles/index.css',
+  '/js-playground/simple-pwa/assets/styles/reset.css',
 ]
 const CACHE_KEY = 'v0.0.1'
 
