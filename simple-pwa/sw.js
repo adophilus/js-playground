@@ -9,7 +9,23 @@ const STATIC_ASSETS = [
 const CACHE_KEY = 'v0.0.1'
 
 self.addEventListener("install", (event) => {
-  event.waitUntil(caches.open(CACHE_KEY).then(cache => {
-    cache.addAll(STATIC_ASSETS)
-  }))
+  event.waitUntil(
+    caches.delete(CACHE_KEY).then(() => {
+      caches.open(CACHE_KEY).then(cache => {
+        cache.addAll(STATIC_ASSETS)
+      })
+    })
+  )
+})
+
+self.addEventListener("activate", (event) => {
+  event.waitUntil(
+    caches.keys()
+      .then(keys => Promise.all(
+        keys.map(key => {
+          if (key !== CACHE_KEY) {
+            caches.delete(key)
+          }
+        })))
+      )
 })
