@@ -38,6 +38,21 @@ window.addEventListener('load', async () => {
   }
 })
 
+const requestForNotificationsPermission = () => {
+  if (window.Notification) {
+    switch (window.Notification.permission) {
+      case 'default': {
+        window.Notification.requestPermission()
+        break
+      }
+      case 'denied':{
+        alert("Permission denied, you have to enable notifications from your brower's settings")
+      }
+    }
+  }
+}
+
 pwaIntallBtn.addEventListener('click', () => {
   triggerPrompt()
+  requestForNotificationsPermission()
 })

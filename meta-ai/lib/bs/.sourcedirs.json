@@ -1,0 +1,1 @@
+{ "dirs" : [ "src" ] , "pkgs" : [ [ "@glennsl/rescript-fetch" , "/home/adophilus/.projects/personal/js-playground/meta-ai/node_modules/@glennsl/rescript-fetch" ] , [ "@rescript/core" , "/home/adophilus/.projects/personal/js-playground/meta-ai/node_modules/@rescript/core" ] ] , "generated" : [] }

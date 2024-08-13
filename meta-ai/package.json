@@ -1,0 +1,19 @@
+{
+	"name": "meta-ai",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"res:build": "rescript",
+		"res:dev": "rescript -w"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@glennsl/rescript-fetch": "^0.2.1",
+		"@rescript/core": "^1.5.2",
+		"rescript": "^11.1.3"
+	}
+}
