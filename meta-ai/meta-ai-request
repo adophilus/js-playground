@@ -1,0 +1,1 @@
+curl -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/603.3.8 (KHTML, like Gecko) Version/10.1.2 Safari/603.3.8' --compressed -H 'Accept: */*' -H 'Connection: keep-alive' https://www.meta.ai/
