@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 { "dirs" : [ "src" ] , "pkgs" : [ [ "@glennsl/rescript-fetch" , "/home/adophilus/.projects/personal/js-playground/meta-ai/node_modules/@glennsl/rescript-fetch" ] , [ "@rescript/core" , "/home/adophilus/.projects/personal/js-playground/meta-ai/node_modules/@rescript/core" ] ] , "generated" : [] }
+=======
+{ "dirs" : [ "src" ] , "pkgs" : [ [ "@glennsl\\rescript-fetch" , "C:\\Users\\uchen\\.projects\\personal\\js-playground\\meta-ai\\node_modules\\@glennsl\\rescript-fetch" ] , [ "@rescript\\core" , "C:\\Users\\uchen\\.projects\\personal\\js-playground\\meta-ai\\node_modules\\@rescript\\core" ] ] , "generated" : [] }
+>>>>>>> c791865e809c744b159f4d4f9acf848560b074e0

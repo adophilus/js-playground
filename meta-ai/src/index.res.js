@@ -3,6 +3,7 @@
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 
 async function main() {
+<<<<<<< HEAD
   var response = await fetch("https://www.meta.ai/api/graphql/", {
         method: "POST",
         headers: Caml_option.some(new Headers({
@@ -10,6 +11,16 @@ async function main() {
                 }))
       });
   console.log(response);
+=======
+  var response = await fetch("http://localhost:8080", {
+        method: "GET",
+        headers: Caml_option.some(new Headers({
+                  "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/603.3.8 (KHTML, like Gecko) Version/10.1.2 Safari/603.3.8"
+                }))
+      });
+  console.log(response.status);
+  console.log(response.headers);
+>>>>>>> c791865e809c744b159f4d4f9acf848560b074e0
 }
 
 main();

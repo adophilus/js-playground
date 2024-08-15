@@ -1,5 +1,6 @@
 rescript = 1
 rule cp
+<<<<<<< HEAD
   command = cp $i $out
 rule touch
  command = touch $out
@@ -7,4 +8,13 @@ o index.cmi : cp ../bs/src/index.cmi
 o index.cmj : cp ../bs/src/index.cmj
 o index.cmt : cp ../bs/src/index.cmt
 o index.res : cp ../../src/index.res
+=======
+  command = cmd.exe /C copy /Y $i $out >NUL
+rule touch
+ command = cmd.exe /C type nul >>$out & copy $out+,, >NUL
+o index.cmi : cp ..\bs\src\index.cmi
+o index.cmj : cp ..\bs\src\index.cmj
+o index.cmt : cp ..\bs\src\index.cmt
+o index.res : cp ..\..\src\index.res
+>>>>>>> c791865e809c744b159f4d4f9acf848560b074e0
 build install.stamp : touch index.cmi index.cmj 
