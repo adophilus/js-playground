@@ -1,20 +1,25 @@
 {
 	"name": "first-take",
+	"type": "module",
 	"scripts": {
 		"dev": "vite --port 3000"
 	},
 	"dependencies": {
 		"@hono/node-server": "^1.12.1",
-		"hono": "^4.5.7",
 		"@hono/node-ws": "^1.0.4",
-		"honox": "^0.1.24"
+		"@types/better-sqlite3": "^7.6.11",
+		"better-sqlite3": "^11.2.1",
+		"hono": "^4.5.7",
+		"honox": "^0.1.24",
+		"kysely": "^0.27.4",
+		"true-myth": "^8.0.0"
 	},
 	"devDependencies": {
 		"@types/node": "^20.11.17",
-		"tsx": "^4.7.1",
 		"autoprefixer": "^10.4.20",
 		"postcss": "^8.4.41",
 		"tailwindcss": "^3.4.10",
+		"tsx": "^4.7.1",
 		"typescript": "^5.5.4",
 		"vite": "^5.4.2"
 	}
