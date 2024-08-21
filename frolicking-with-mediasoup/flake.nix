@@ -14,19 +14,11 @@
       devShells = forEachSupportedSystem ({ pkgs }: {
         default = pkgs.mkShell {
           venvDir = ".venv";
-
-    packages = [
-      (python3.withPackages (ps: with ps; [
-      pip
-      pycryptodome
-      setuptools
-    ]))
-    ];
-          # packages = with pkgs; [ python311 ] ++
-          #   (with pkgs.python311Packages; [
-          #     pip
-          #     venvShellHook
-          #   ]);
+          packages = with pkgs; [ python311 ] ++
+            (with pkgs.python311Packages; [
+              pip
+              venvShellHook
+            ]);
         };
       });
     };
