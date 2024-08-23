@@ -15,10 +15,10 @@
 		"composite": true
 	},
 	"include": ["./{src,scripts}/**/*.ts"],
-	"extends": "../tsconfig.json",
-	"references": [
-		{
-			"path": "../tsconfig.json"
-		}
-	]
+	"extends": "../tsconfig.json"
+	// "references": [
+	// 	{
+	// 		"path": "../tsconfig.json"
+	// 	}
+	// ]
 }

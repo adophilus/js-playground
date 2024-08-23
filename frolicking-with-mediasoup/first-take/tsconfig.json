@@ -1,6 +1,7 @@
 {
 	"compilerOptions": {
 		"esModuleInterop": true,
+		"composite": true,
 		"paths": {
 			"@backend/*": ["./backend/src/*"],
 			"@frontend/*": ["./frontend/src/*"]
