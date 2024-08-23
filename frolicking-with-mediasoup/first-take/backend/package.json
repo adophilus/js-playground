@@ -1,0 +1,26 @@
+{
+	"name": "backend",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "tsx --watch ./scripts/run.ts"
+	},
+	"dependencies": {
+		"better-sqlite3": "^11.2.1",
+		"drizzle-kit": "^0.24.1",
+		"drizzle-orm": "^0.33.0",
+		"hono": "^4.5.8",
+		"lodash": "^4.17.21",
+		"mediasoup-client": "^3.7.16",
+		"tslog": "^4.9.3",
+		"zod": "^3.23.8"
+	},
+	"devDependencies": {
+		"@types/better-sqlite3": "^7.6.11",
+		"@types/lodash": "^4.17.7",
+		"@types/node": "^20.16.1",
+		"tsx": "^4.17.0",
+		"typescript": "^5"
+	}
+}
