@@ -40,7 +40,7 @@ export const Topbar = () => {
 				<button
 					type="button"
 					onClick={createRoom}
-					className="items-center inline-flex gap-2 p-2 px-4 text-white font-Rowdies text-lg rounded-md shadow-md hover:scale-105 hover:-rotate-[2deg] transition-transform duration-250 bg-emerald-600"
+					className="items-center inline-flex gap-2 p-2 px-4 text-white font-Rowdies text-lg rounded-md shadow-md hover:scale-105 hover:-rotate-[2deg] transition-transform duration-250 bg-gradient-to-r from-emerald-600 to-emerald-500"
 				>
 					<PlusIcon className="size-6" />
 					Create room
