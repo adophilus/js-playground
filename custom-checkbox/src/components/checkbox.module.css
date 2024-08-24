@@ -1,0 +1,36 @@
+:host {
+  --primary: #1462cd;
+  --disabled: #cccccd;
+  --hover: #eeeeee;
+  --white: #ffffff;
+}
+
+:host {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+input {
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    z-index: 1;
+    background-color: var(--white);
+    opacity: 1;
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 0.25em;
+    border: 1px solid var(--disabled);
+  }
+
+  &:checked::before {
+    background-color: var(--primary);
+  }
+
+  &:not(:checked):hover::before {
+    background-color: var(--hover);
+  }
+}
