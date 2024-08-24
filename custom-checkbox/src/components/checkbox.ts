@@ -25,8 +25,10 @@ export class MyCheckbox extends HTMLElement {
 		shadowRoot.adoptedStyleSheets = [sheet];
 	}
 
-	attributeChangedCallback(name, oldValue, newValue) {
-		this.checkboxEl.setAttribute("id", newValue);
+	attributeChangedCallback(name: string, _: string, newValue: string) {
+		if (name === "id") {
+			this.checkboxEl.setAttribute("id", newValue);
+		}
 	}
 
 	connectedCallback() {}
