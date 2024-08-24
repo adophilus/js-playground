@@ -12,10 +12,25 @@ jobs:
     steps:
       - name: Checkout current repo state
         uses: actions/checkout@v4
-      - name: Upload simple-pwa
+      - name: Create output folder
+        run: mkdir __site
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Activate pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@latest --activate
+      - name: Build custom-checkbox
+        run: |
+          cd custom-checkbox
+          pnpm install
+          pnpm build --base /js-playground/custom-checkbox --outDir ../__site/custom-checkbox
+      - name: Upload built assets
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: __site
           retention-days: 360
 
   deploy:
