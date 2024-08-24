@@ -3,6 +3,7 @@
   --disabled: #cccccd;
   --hover: #eeeeee;
   --white: #ffffff;
+  --black: #000000;
 }
 
 :host {
@@ -43,7 +44,13 @@ button {
 svg {
   width: 1.2rem;
   height: 1.2rem;
+  stroke: var(--black);
   stroke-width: 5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  stroke-dashoffset: -23;
+  stroke-dasharray: 23;
 }
 
 label {
