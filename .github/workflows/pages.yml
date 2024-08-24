@@ -27,6 +27,7 @@ jobs:
           cd custom-checkbox
           pnpm install
           pnpm build --base /js-playground/custom-checkbox --outDir ../__site/custom-checkbox
+          cd  ..
       - name: Upload built assets
         uses: actions/upload-pages-artifact@v3
         with:
