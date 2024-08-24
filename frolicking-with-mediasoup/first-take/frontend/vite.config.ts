@@ -1,7 +1,8 @@
 import { defineConfig } from "vite";
 import { z } from "zod";
 import { resolve } from "node:path";
-import solid from "vite-plugin-solid";
+import react from "@vitejs/plugin-react-swc";
+import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 
 const env = z
 	.object({
@@ -10,7 +11,7 @@ const env = z
 	.parse(process.env);
 
 export default defineConfig({
-	plugins: [solid()],
+	plugins: [TanStackRouterVite(), react()],
 	resolve: {
 		alias: {
 			"@frontend": resolve(__dirname, "./src"),
