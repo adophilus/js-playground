@@ -1,4 +1,5 @@
 import styles from "./checkbox.module.css?raw";
+import checkmark from "./checkmark.svg?raw";
 
 export class MyCheckbox extends HTMLElement {
 	private declare checkboxEl: HTMLInputElement;
@@ -14,6 +15,13 @@ export class MyCheckbox extends HTMLElement {
 		this.checkboxEl.setAttribute("type", "checkbox");
 		this.checkboxEl.setAttribute("id", id);
 		shadowRoot.appendChild(this.checkboxEl);
+
+		const btnElement = document.createElement("button");
+		btnElement.addEventListener("click", () => {
+			this.checkboxEl.checked = !this.checkboxEl.checked;
+		});
+		btnElement.innerHTML = checkmark;
+		shadowRoot.appendChild(btnElement);
 
 		const labelEl = document.createElement("label");
 		labelEl.setAttribute("for", id);
