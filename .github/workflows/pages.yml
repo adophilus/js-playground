@@ -6,6 +6,13 @@ on:
       - main
 
 jobs:
+  setup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
   build:
     runs-on: ubuntu-latest
 
