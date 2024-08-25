@@ -13,6 +13,7 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as HomeImport } from './routes/_home'
 import { Route as HomeIndexImport } from './routes/_home/index'
+import { Route as RoomRoomsIdImport } from './routes/_room/rooms/$id'
 
 // Create/Update Routes
 
@@ -24,6 +25,11 @@ const HomeRoute = HomeImport.update({
 const HomeIndexRoute = HomeIndexImport.update({
   path: '/',
   getParentRoute: () => HomeRoute,
+} as any)
+
+const RoomRoomsIdRoute = RoomRoomsIdImport.update({
+  path: '/rooms/$id',
+  getParentRoute: () => rootRoute,
 } as any)
 
 // Populate the FileRoutesByPath interface
@@ -44,6 +50,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HomeIndexImport
       parentRoute: typeof HomeImport
     }
+    '/_room/rooms/$id': {
+      id: '/_room/rooms/$id'
+      path: '/rooms/$id'
+      fullPath: '/rooms/$id'
+      preLoaderRoute: typeof RoomRoomsIdImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -51,6 +64,7 @@ declare module '@tanstack/react-router' {
 
 export const routeTree = rootRoute.addChildren({
   HomeRoute: HomeRoute.addChildren({ HomeIndexRoute }),
+  RoomRoomsIdRoute,
 })
 
 /* prettier-ignore-end */
@@ -61,7 +75,8 @@ export const routeTree = rootRoute.addChildren({
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/_home"
+        "/_home",
+        "/_room/rooms/$id"
       ]
     },
     "/_home": {
@@ -73,6 +88,9 @@ export const routeTree = rootRoute.addChildren({
     "/_home/": {
       "filePath": "_home/index.tsx",
       "parent": "/_home"
+    },
+    "/_room/rooms/$id": {
+      "filePath": "_room/rooms/$id.tsx"
     }
   }
 }

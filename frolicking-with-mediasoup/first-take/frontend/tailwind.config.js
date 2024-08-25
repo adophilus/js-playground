@@ -5,6 +5,10 @@ export default {
 		extend: {
 			fontFamily: {
 				Rowdies: "Rowdies, sans-serif",
+				Moderustic: "Moderustic, sans-serif",
+			},
+			transitionProperty: {
+				width: "width",
 			},
 		},
 	},
