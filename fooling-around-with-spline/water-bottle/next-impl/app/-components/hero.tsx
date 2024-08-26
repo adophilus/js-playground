@@ -37,7 +37,7 @@ export const Hero = () => {
 			<div className="absolute z-20 container inset-0 mx-auto pointer-events-none text-white grid h-full place-items-center">
 				{/* biome-ignore lint/a11y/useHeadingContent: <explanation> */}
 				<h2
-					className="text-white text-[10rem] font-NewAmsterdam tracking-wide text-center"
+					className="text-white text-4xl lg:text-[10rem] font-NewAmsterdam tracking-wide text-center"
 					// ref={textContainer}
 				>
 					Need a recharge?
