@@ -18,9 +18,15 @@ function RoomPage() {
 			onSuccess: (stream) => {
 				const video = videoRef.current!;
 				video.srcObject = stream;
-				console.log(stream);
 
-				joinRoom({ id, stream });
+				joinRoom(
+					{ id, stream },
+					{
+						onSuccess: (remoteStream) => {
+							console.log("Remote stream:", remoteStream);
+						},
+					},
+				);
 			},
 		});
 	}, []);
