@@ -13,25 +13,10 @@ import {
 	VideoOffIcon,
 	MicOffIcon,
 	MonitorOffIcon,
-	LucideIcon,
+	type LucideIcon,
 	Loader2Icon,
 } from "lucide-react";
-import { useQuery } from "@tanstack/react-query";
-import * as lib from "@/lib/meeting";
 import { cn } from "@/lib/utils";
-
-const useStream = () => {
-	const { data, status, error } = useQuery({
-		queryKey: ["stream", "get"],
-		queryFn: () => lib.getStream(),
-	});
-
-	if (status === "pending") return null;
-
-	if (status === "error") throw new Error(String(error));
-
-	return data;
-};
 
 type ActionButton = {
 	label: string;
