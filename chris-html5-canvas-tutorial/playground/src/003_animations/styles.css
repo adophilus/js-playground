@@ -1,0 +1,15 @@
+#header-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+  padding: 0.5rem;
+}
+
+#header {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+}
