@@ -1,0 +1,53 @@
+name: docs-prod
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout current repo state
+        uses: actions/checkout@v4
+
+      - name: Create output folder
+        run: mkdir __site
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v27
+
+      - name: Build internal docs
+        working-directory: docs/docs
+        run: |
+          nix build .#packages.x86_64-linux.docs
+          mkdir -p ../../__site/docs/docs
+          cp -r result/* ../../__site/docs/docs
+
+      - name: Check built internal docs
+        working-directory: docs/docs
+        run: nix flake check
+
+      - name: Build api docs
+        working-directory: docs/api
+        run: |
+          nix build --impure --no-sandbox .#packages.x86_64-linux.docs
+          mkdir -p ../../__site/docs/api
+          cp -r result/* ../../__site/docs/api
+
+      - name: Check built api docs
+        working-directory: docs/api
+        run: nix flake check
+
+      - name: Deploy docs
+        working-directory: __site
+        run: |
+          mkdir -p .vercel/output/static
+          echo '{ "version": 3 }' > .vercel/output/config.json
+          mv * .vercel/output/static
+          nix run nixpkgs#bun -- x vercel deploy --prebuilt --target production --token ${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}

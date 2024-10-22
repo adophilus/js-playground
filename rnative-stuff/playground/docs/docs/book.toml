@@ -1,0 +1,10 @@
+[book]
+authors = ["Adophilus"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Documentation"
+
+[preprocessor.d2]
+layout = "elk"
+inline = true

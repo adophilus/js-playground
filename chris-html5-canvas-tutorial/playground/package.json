@@ -8,7 +8,8 @@
 		"typecheck": "tsc",
 		"build": "vite build",
 		"build:all": "./scripts/build-all.sh",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"deploy": "vercel deploy"
 	},
 	"devDependencies": {
 		"@types/chroma-js": "^2.4.4",
