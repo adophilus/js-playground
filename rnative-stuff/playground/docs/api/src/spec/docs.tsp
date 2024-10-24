@@ -30,6 +30,13 @@ namespace Api {
     @example("Invalid data")
     message: string;
   }
+  
+  @error
+  model UnauthorizedError {
+    @statusCode code: 401;
+    @example("Unauthorized")
+    message: string;
+  }
 
   @tag("Auth")
   @route("/auth")
@@ -96,6 +103,15 @@ namespace Api {
       message: string;
     }
     
+    model User {
+      @example("73ffff2a-413c-4283-bec9-a43cb1e82411")
+      id: string;
+      @example("mary.slessor@mail.com")
+      email: string;
+      @example("mary.slessor")
+      username: string;
+    }
+    
     @route("/sign-up")
     @post
     @doc("Sign up new user")
@@ -129,11 +145,30 @@ namespace Api {
     @route("/sign-out")
     @doc("Sign out user")
     op signOut(): SignOutSuccessful | UnexpectedError;
+    
+    @route("/profile")
+    @doc("Get user profile")
+    @useAuth(BearerAuth)
+    op getProfile(): User | UnauthorizedError | UnexpectedError;
   }
   
   @tag("Exchange")
   @route("/exchange")
   @useAuth(BearerAuth)
   namespace Exchange {
+    model ExchangeRates {
+      @example("2021-09-01T12:00:00Z")
+      date: Date;
+      @example("USD")
+      base: string;
+      @example("EUR")
+      target: string;
+      @example(0.85)
+      rate: float;
+    }
+    
+    @route("/rates")
+    @doc("Get exchange rates")
+    op getExchangeRates(): ExchangeRates | UnexpectedError;
   }
 }

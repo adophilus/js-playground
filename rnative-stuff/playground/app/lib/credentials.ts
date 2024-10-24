@@ -1,6 +1,6 @@
 export const credentials = {
-	email: "mark.evans@mail.com",
-	username: "mark.evans",
-	password: "mark.evans",
-	confirm_password: "mark.evans",
-};
+  email: 'uchenna19of@gmail.com',
+  username: 'adophilus',
+  password: 'adophilus123',
+  confirm_password: 'adophilus123',
+}

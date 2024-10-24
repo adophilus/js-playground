@@ -47,9 +47,6 @@ importers:
       true-myth:
         specifier: ^8.0.1
         version: 8.0.1
-      typescript:
-        specifier: ^5.0.0
-        version: 4.9.5
       zod:
         specifier: ^3.23.8
         version: 3.23.8
@@ -57,6 +54,9 @@ importers:
       '@types/bun':
         specifier: latest
         version: 1.1.11
+      typescript:
+        specifier: ^5.6.3
+        version: 5.6.3
       vercel:
         specifier: ^37.8.0
         version: 37.11.0
@@ -1242,6 +1242,11 @@ packages:
   typescript@4.9.5:
     resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
     engines: {node: '>=4.2.0'}
+    hasBin: true
+
+  typescript@5.6.3:
+    resolution: {integrity: sha512-hjcS1mhfuyi4WW8IWtjP7brDrG2cuDZukyrYrSauoXGNgx0S7zceP07adYkJycEr56BOUTNPzbInooiN3fn1qw==}
+    engines: {node: '>=14.17'}
     hasBin: true
 
   uid-promise@1.0.0:
@@ -2547,6 +2552,8 @@ snapshots:
   ts-toolbelt@6.15.5: {}
 
   typescript@4.9.5: {}
+
+  typescript@5.6.3: {}
 
   uid-promise@1.0.0: {}
 

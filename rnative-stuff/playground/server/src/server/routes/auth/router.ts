@@ -2,7 +2,6 @@ import { zValidator } from '@hono/zod-validator'
 import { Hono } from 'hono'
 import { z } from 'zod'
 import { db } from '../../../database'
-import { TokenService } from '../../services/token'
 import {
   decodeIdToken,
   generateCodeVerifier,
@@ -19,7 +18,6 @@ import {
 } from 'hono/cookie'
 
 export default new Hono()
-  .use(TokenService.routerDecorator)
   .post(
     '/sign-up',
     zValidator(
@@ -91,15 +89,18 @@ export default new Hono()
         )
         .executeTakeFirstOrThrow()
 
-      if (user.password !== payload.password)
-        return c.json(
-          { message: 'Invalid username/email or password combination' },
-          400,
-        )
+      // if (user.password !== payload.password)
+      //   return c.json(
+      //     { message: 'Invalid username/email or password combination' },
+      //     400,
+      //   )
+
+      const sessionToken = AuthService.generateSessionToken()
+      await AuthService.createSession(sessionToken, user.id)
 
       return c.json({
         message: 'Signin successful',
-        token: await c.get('tokenService').generateAccessToken(user.id),
+        token: sessionToken,
       })
     },
   )
@@ -209,11 +210,10 @@ export default new Hono()
 
       // TODO: handle situtation where the user tries to sign in with a google account that's not bound to any user
 
-      let session: AuthService.Session
       const sessionToken = AuthService.generateSessionToken()
 
       if (existingUser) {
-        session = await AuthService.createSession(sessionToken, existingUser.id)
+        await AuthService.createSession(sessionToken, existingUser.id)
       } else {
         const id = crypto.randomUUID()
         const user = await db
@@ -225,11 +225,11 @@ export default new Hono()
           })
           .returningAll()
           .executeTakeFirstOrThrow()
-        session = await AuthService.createSession(sessionToken, user.id)
+        await AuthService.createSession(sessionToken, user.id)
       }
 
       const url = new URL(redirectUrl)
-      url.searchParams.set('session', session.id)
+      url.searchParams.set('session', sessionToken)
 
       console.log('redirecting to:', url.toString())
 
@@ -262,3 +262,4 @@ export default new Hono()
       // },
     },
   )
+  .get('/profile', AuthService.middleware, async (c) => c.json(c.get('user')))

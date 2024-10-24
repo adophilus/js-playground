@@ -1,23 +1,10 @@
 import Toast from 'react-native-toast-message'
-import {
-  StyleSheet,
-  View,
-  ScrollView,
-  Pressable,
-  KeyboardAvoidingView,
-  Platform,
-} from 'react-native'
+import { View, ScrollView } from 'react-native'
 import { Button } from '~/components/ui/button'
 import { Text } from '~/components/ui/text'
 import { Input } from '~/components/ui/input'
-import {
-  GoogleIcon,
-  LogoIcon,
-  AppleIcon,
-  WalletConnectIcon,
-} from '~/components/icons'
+import { GoogleIcon, AppleIcon, WalletConnectIcon } from '~/components/icons'
 import { useAppKit } from '@reown/appkit-wagmi-react-native'
-import { useMutation } from '@tanstack/react-query'
 import { env } from '~/env'
 import { z } from 'zod'
 import { useForm } from 'react-hook-form'
@@ -31,13 +18,13 @@ import {
   FormMessage,
 } from '~/components/ui/form'
 import { CheckCircleIcon, CircleXIcon, Loader2Icon } from 'lucide-react-native'
-import { Link, useRouter } from 'expo-router'
+import { Link, useLocalSearchParams, useRouter } from 'expo-router'
 import { $api } from '~/lib/api'
 import { credentials } from '~/lib/credentials'
 import { cn } from '~/lib/utils'
 import * as WebBrowser from 'expo-web-browser'
 import * as Linking from 'expo-linking'
-// import * as Google from "expo-auth-session/providers/google";
+import { useEffect } from 'react'
 
 const signUpSchema = z
   .object({
@@ -63,9 +50,19 @@ const signUpSchema = z
 type SignUpSchema = z.infer<typeof signUpSchema>
 
 export default function SignUpPage() {
+  const { error } = useLocalSearchParams<{ error?: string }>()
+  useEffect(() => {
+    if (error)
+      Toast.show({
+        type: 'error',
+        text1: 'An error occurred!',
+        text2: error,
+      })
+  }, [error])
+
   const form = useForm<SignUpSchema>({
     resolver: zodResolver(signUpSchema),
-    // defaultValues: env.NODE_ENV === "development" ? credentials : {},
+    defaultValues: env.NODE_ENV === 'development' ? credentials : {},
   })
 
   const {
@@ -98,7 +95,6 @@ export default function SignUpPage() {
 
   const signInWithGoogle = async () => {
     const redirectUrl = Linking.createURL('/sign-up/callback')
-    console.log(redirectUrl)
     const url = new URL(env.API_URL)
     url.pathname = '/api/auth/sign-up/google'
     url.searchParams.append('redirect_url', redirectUrl)

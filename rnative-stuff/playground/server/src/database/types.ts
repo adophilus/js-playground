@@ -4,15 +4,15 @@ type UsersTable = {
   id: string
   email: string
   username: string
-  created_at: ColumnType<Date, never, never>
-  updated_at?: ColumnType<Date | null, Date, Date>
+  created_at: ColumnType<number, never, never>
+  updated_at?: ColumnType<number | null, number, number>
 }
 
 type AuthTable = {
   id: string
   user_id: string
-  created_at: ColumnType<Date, never, never>
-  updated_at: ColumnType<Date | null, Date, Date>
+  created_at: ColumnType<number, never, never>
+  updated_at: ColumnType<number | null, number, number>
 } & (
   | {
       method: 'password'
@@ -29,9 +29,9 @@ type AuthTable = {
 type SessionsTable = {
   id: string
   user_id: string
-  expires_at: Date
-  created_at: ColumnType<Date, never, never>
-  updated_at?: ColumnType<Date | null, Date, Date>
+  expires_at: number
+  created_at: ColumnType<number, never, never>
+  updated_at?: ColumnType<number | null, number, number>
 }
 
 export type Database = {
