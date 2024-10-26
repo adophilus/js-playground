@@ -10,7 +10,11 @@ export default function SignInCallbackSreen() {
   const { status, data, error } = $api.useQuery(
     'get',
     '/api/auth/profile',
-    undefined,
+    {
+      headers: {
+        Authorization: `Bearer ${session}`,
+      },
+    },
     {
       retry: false,
     },

@@ -5,14 +5,14 @@ type UsersTable = {
   email: string
   username: string
   created_at: ColumnType<number, never, never>
-  updated_at?: ColumnType<number | null, number, number>
+  updated_at: ColumnType<number | null, number | undefined, number>
 }
 
 type AuthTable = {
   id: string
   user_id: string
   created_at: ColumnType<number, never, never>
-  updated_at: ColumnType<number | null, number, number>
+  updated_at: ColumnType<number | null, number | undefined, number>
 } & (
   | {
       method: 'password'
@@ -22,7 +22,7 @@ type AuthTable = {
     }
   | {
       method: 'google'
-      metadata: object
+      metadata: string
     }
 )
 
@@ -31,7 +31,7 @@ type SessionsTable = {
   user_id: string
   expires_at: number
   created_at: ColumnType<number, never, never>
-  updated_at?: ColumnType<number | null, number, number>
+  updated_at: ColumnType<number | null, number | undefined, number>
 }
 
 export type Database = {

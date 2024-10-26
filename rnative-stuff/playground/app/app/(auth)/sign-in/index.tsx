@@ -34,6 +34,8 @@ import {
 } from '~/components/ui/form'
 import Toast from 'react-native-toast-message'
 import { CheckCircleIcon, Loader2Icon } from 'lucide-react-native'
+import * as WebBrowser from 'expo-web-browser'
+import * as Linking from 'expo-linking'
 import { cn } from '~/lib/utils'
 
 const signInSchema = z
@@ -85,6 +87,15 @@ export default function SignInPage() {
   }
 
   const { open } = useAppKit()
+
+  const continueWithGoogle = async () => {
+    const redirectUrl = Linking.createURL('/sign-in/callback')
+    const url = new URL(env.API_URL)
+    url.pathname = '/api/auth/sign-in/google'
+    url.searchParams.append('redirect_url', redirectUrl)
+    await WebBrowser.openAuthSessionAsync(url.toString(), redirectUrl)
+  }
+
   const isLoading = form.formState.isSubmitting || status === 'pending'
   const hasSubmitted = status === 'success'
 
@@ -209,6 +220,7 @@ export default function SignInPage() {
                       className="py-4 border border-gray-200 h-auto native:h-auto rounded-2xl flex flex-row gap-4 items-center"
                       size={'lg'}
                       variant={'ghost'}
+                      onPress={continueWithGoogle}
                     >
                       <GoogleIcon width={16} height={16} />
                       <Text>Continue with Google</Text>

@@ -1,0 +1,19 @@
+{
+	"name": "take-one",
+	"module": "./src/index.ts",
+	"type": "module",
+	"scripts": {
+		"dev": "bun run --watch ./src/index.ts"
+	},
+	"devDependencies": {
+		"@types/bun": "latest",
+		"@types/pg": "^8.11.10"
+	},
+	"peerDependencies": {
+		"typescript": "^5.0.0"
+	},
+	"dependencies": {
+		"pg": "^8.13.1",
+		"sqlx-ts": "^0.17.0"
+	}
+}

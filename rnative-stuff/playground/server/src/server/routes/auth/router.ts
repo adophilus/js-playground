@@ -1,5 +1,5 @@
 import { zValidator } from '@hono/zod-validator'
-import { Hono } from 'hono'
+import { Hono, type Context } from 'hono'
 import { z } from 'zod'
 import { db } from '../../../database'
 import {
@@ -16,6 +16,62 @@ import {
   setSignedCookie,
   deleteCookie,
 } from 'hono/cookie'
+import type { Env } from 'hono/types'
+
+const continueWithGoogle = <
+  E extends Env,
+  P extends string,
+  I extends {
+    in: {
+      query: {
+        redirect_url: string
+      }
+    }
+    out: {
+      query: {
+        redirect_url: string
+      }
+    }
+  },
+  C extends Context<E, P, I>,
+>(
+  c: C,
+) => {
+  const payload = c.req.valid('query')
+  const state = generateState()
+  const codeVerifier = generateCodeVerifier()
+  const url = AuthService.google.createAuthorizationURL(state, codeVerifier, [
+    'openid',
+    'profile',
+    'email',
+  ])
+
+  setCookie(c, 'google_oauth_state', state, {
+    path: '/',
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    maxAge: 60 * 10,
+    sameSite: 'lax',
+  })
+
+  setCookie(c, 'google_code_verifier', codeVerifier, {
+    path: '/',
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    maxAge: 60 * 10,
+    sameSite: 'lax',
+  })
+
+  setCookie(c, 'app_redirect_url', payload.redirect_url, {
+    path: '/',
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    maxAge: 60 * 10,
+    sameSite: 'lax',
+  })
+
+  return c.redirect(url.toString())
+}
 
 export default new Hono()
   .post(
@@ -59,8 +115,6 @@ export default new Hono()
         .returningAll()
         .executeTakeFirst()
 
-      console.log(user)
-
       return c.json({
         message: 'Please check your email address for a verification code',
       })
@@ -89,11 +143,21 @@ export default new Hono()
         )
         .executeTakeFirstOrThrow()
 
-      // if (user.password !== payload.password)
-      //   return c.json(
-      //     { message: 'Invalid username/email or password combination' },
-      //     400,
-      //   )
+      const passwordAuthMethod = await db
+        .selectFrom('auth')
+        .selectAll()
+        .where('user_id', '=', user.id)
+        .where('method', '=', 'password')
+        .executeTakeFirst()
+
+      if (
+        !passwordAuthMethod ||
+        passwordAuthMethod.metadata.hash !== payload.password
+      )
+        return c.json(
+          { message: 'Invalid username/email or password combination' },
+          400,
+        )
 
       const sessionToken = AuthService.generateSessionToken()
       await AuthService.createSession(sessionToken, user.id)
@@ -112,42 +176,12 @@ export default new Hono()
         redirect_url: z.string().url(),
       }),
     ),
-    (c) => {
-      const payload = c.req.valid('query')
-      const state = generateState()
-      const codeVerifier = generateCodeVerifier()
-      const url = AuthService.google.createAuthorizationURL(
-        state,
-        codeVerifier,
-        ['openid', 'profile', 'email'],
-      )
-
-      setCookie(c, 'google_oauth_state', state, {
-        path: '/',
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        maxAge: 60 * 10,
-        sameSite: 'lax',
-      })
-
-      setCookie(c, 'google_code_verifier', codeVerifier, {
-        path: '/',
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        maxAge: 60 * 10,
-        sameSite: 'lax',
-      })
-
-      setCookie(c, 'app_redirect_url', payload.redirect_url, {
-        path: '/',
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        maxAge: 60 * 10,
-        sameSite: 'lax',
-      })
-
-      return c.redirect(url.toString())
-    },
+    (c) => continueWithGoogle(c),
+  )
+  .get(
+    '/sign-in/google',
+    zValidator('query', z.object({ redirect_url: z.string().url() })),
+    (c) => continueWithGoogle(c),
   )
   .get(
     '/providers/google/callback',
@@ -191,6 +225,7 @@ export default new Hono()
       const decodedIdToken = decodeIdToken(tokens.idToken())
       const claimsParseResult = z
         .object({
+          sub: z.string(),
           email: z.string().email(),
         })
         .safeParse(decodedIdToken)
@@ -213,6 +248,28 @@ export default new Hono()
       const sessionToken = AuthService.generateSessionToken()
 
       if (existingUser) {
+        const googleAuthMethod = await db
+          .selectFrom('auth')
+          .selectAll()
+          .where(({ and, eb }) =>
+            and([
+              eb('user_id', '=', existingUser.id),
+              eb('method', '=', 'google'),
+            ]),
+          )
+          .executeTakeFirst()
+        if (!googleAuthMethod)
+          await db
+            .insertInto('auth')
+            .values({
+              id: crypto.randomUUID(),
+              metadata: JSON.stringify({
+                sub: claims.sub,
+              }),
+              method: 'google',
+              user_id: existingUser.id,
+            })
+            .execute()
         await AuthService.createSession(sessionToken, existingUser.id)
       } else {
         const id = crypto.randomUUID()

@@ -93,7 +93,7 @@ export default function SignUpPage() {
     )
   }
 
-  const signInWithGoogle = async () => {
+  const continueWithGoogle = async () => {
     const redirectUrl = Linking.createURL('/sign-up/callback')
     const url = new URL(env.API_URL)
     url.pathname = '/api/auth/sign-up/google'
@@ -260,7 +260,7 @@ export default function SignUpPage() {
                         className="py-4 border border-gray-200 h-auto native:h-auto rounded-2xl flex flex-row gap-4 items-center"
                         size={'lg'}
                         variant={'ghost'}
-                        onPress={signInWithGoogle}
+                        onPress={continueWithGoogle}
                       >
                         <GoogleIcon width={16} height={16} />
                         <Text>Continue with Google</Text>
