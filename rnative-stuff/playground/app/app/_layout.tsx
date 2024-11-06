@@ -18,11 +18,7 @@ export default function RootLayout() {
     <>
       <GestureHandlerRootView style={{ flex: 1 }}>
         <Provider>
-          <Stack screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="(auth)" />
-            <Stack.Screen name="(onboarding)" />
-            <Stack.Screen name="(dashboard)" />
-          </Stack>
+          <Stack screenOptions={{ headerShown: false }} />
           <PortalHost />
         </Provider>
       </GestureHandlerRootView>

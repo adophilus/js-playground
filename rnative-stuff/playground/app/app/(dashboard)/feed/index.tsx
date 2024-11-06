@@ -5,7 +5,7 @@ import {
 	BellDotIcon,
 	BookmarkIcon,
 } from "lucide-react-native";
-import { FunctionComponent } from "react";
+import type { FunctionComponent } from "react";
 import { View, Text, ScrollView } from "react-native";
 import { cn } from "~/lib/utils";
 

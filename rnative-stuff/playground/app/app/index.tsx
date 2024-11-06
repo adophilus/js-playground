@@ -2,7 +2,7 @@ import { Link, Redirect } from "expo-router";
 import { Text, View } from "react-native";
 
 export default function IndexScreen() {
-	return <Redirect href="/(auth)/sign-up" />;
+	return <Redirect href="/(dashboard)/feed" />;
 	// return <Redirect href="/(dashboard)/bills" />;
 	return (
 		<View className="flex-1 gap-4 justify-center">

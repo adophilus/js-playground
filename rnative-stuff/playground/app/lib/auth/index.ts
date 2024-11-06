@@ -1,5 +1,5 @@
 import { proxy, useSnapshot } from 'valtio'
-import * as SecureStore from 'expo-secure-store'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import { z, type ZodError } from 'zod'
 import { Result } from 'true-myth'
 
@@ -58,7 +58,7 @@ export namespace AuthModule {
   export const userAuth = () => useSnapshot(store)
 
   export const restore = async () => {
-    const persistedAuth = await SecureStore.getItemAsync('auth')
+    const persistedAuth = await AsyncStorage.getItem('auth')
     if (!persistedAuth) return
 
     const result = deserialize(persistedAuth)
@@ -74,7 +74,7 @@ export namespace AuthModule {
     store.session = session
     store.user = user
     store.status = 'authenticated'
-    await SecureStore.setItemAsync('auth', serialize({ user, session }))
+    await AsyncStorage.setItem('auth', serialize({ user, session }))
   }
 
   export const useAuth = () => useSnapshot(store)
