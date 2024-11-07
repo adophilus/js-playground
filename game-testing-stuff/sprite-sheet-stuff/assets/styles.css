@@ -1,0 +1,29 @@
+:root {
+  --pixel-size: 3;
+}
+
+body {
+  background-color: #96ffc1;
+}
+
+.character {
+  width: calc(48px * var(--pixel-size));
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.character .spritesheet {
+  animation: move-sprite 1s steps(4) infinite;
+  width: calc(192px * var(--pixel-size));
+  image-rendering: pixelated;
+}
+
+@keyframes move-sprite {
+  from {
+    transform: translate3d(0px, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
