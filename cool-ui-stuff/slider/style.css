@@ -1,0 +1,200 @@
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --work: #ff4d4d;
+    --work-bg: #ff4d4d40;
+    --life: #aaec8a;
+    --life-bg: #aaec8a60;
+    --bg: #0b0b0b;
+    --grabber: #a7a7a7;
+    --grabber-active: #f8f8ff;
+}
+
+body {
+    display: flex;
+    place-items: center;
+    height: 100vh;
+    font-family: Poppins, 
+    sans-serif;
+    background: var(--bg);
+}
+
+.slider {
+    position: relative;
+    display: grid;
+    place-items: center;
+    margin: 0 auto;
+}
+
+.slider input[type="range"] {
+    width: 20rem;
+    opacity: 0;
+    height: 3.5rem;
+}
+
+.slider input[type="range"]:hover {
+    cursor: -webkit-grab;
+}
+.slider input[type="range"]:active {
+    cursor: -webkit-grabbing;
+}
+
+.slider input[type=range]:focus-visible {
+    outline-offset: 0.25rem;
+    outline-color: transparent;
+}
+
+@property --shift {
+    initial-value: 0;
+    inherits: true;
+    syntax: '<integer>';
+}
+
+@keyframes shift {
+    0%, 30%, 61%, 100% { --shift: 0; }
+    31%, 60% { --shift: 1; }
+}
+
+@property --value {
+    initial-value: 0;
+    syntax: '<integer>';
+    inherits: true;
+}
+
+@keyframes sync {
+    to { --value: 100; }
+}
+
+.slider {
+    animation: 
+        sync both linear reverse, 
+        shift both linear;
+    animation-range: contain;
+}
+
+/* slider track */
+.slider__track {
+    height: calc(50% + 
+        (var(--shift) * 50%)
+    );
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    pointer-events: none;
+    transition: height var(--speed) 
+        var(--timing);
+}
+
+.slider__track::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: calc(
+        var(--value, 0) * 1%
+         - 0.5rem);
+    background: var(--work-bg);
+    border-radius: 4px;
+    transition: width var(--update);
+}
+
+.slider__track::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: calc(
+        (100 - var(--value, 0)) * 1% 
+        - 0.5rem);
+    background: var(--life-bg);
+    border-radius: 4px;
+    transition: width var(--update);
+}
+
+/* slider indicator */
+.slider__indicator {
+    height: 90%;
+    border-radius: 0.25rem;
+    width: 6px;
+    position: absolute;
+    top: 50%;
+    left: calc(var(--value, 0) * 1%);
+    z-index: 2;
+    translate: -50% -50%;
+    transition: left var(--update);
+    background: var(--grabber);
+}
+
+.slider:focus-within .slider__indicator,
+.slider:hover .slider__indicator {
+   background: var(--grabber-active);
+}
+
+/* scroll tooltip */
+.slider__tooltip {
+    counter-reset: low var(--value) 
+        high calc(100 - var(--value));
+    font-size: 1rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    pointer-events: none;
+    transform: translateY(
+        calc(var(--shift, 0) * 50%));
+    transition: transform 0.65s linear(
+        0, 0.5007 7.21%, 0.7803 12.29%,
+        0.8883 14.93%, 0.9724 17.63%,
+        1.0343 20.44%, 1.0754 23.44%,
+        1.0898 25.22%, 1.0984 27.11%,
+        1.1014 29.15%, 1.0989 31.4%,
+        1.0854 35.23%, 1.0196 48.86%,
+        1.0043 54.06%, 0.9956 59.6%,
+        0.9925 68.11%, 1
+    );
+    z-index: 2;
+}
+
+.slider__tooltip::after,
+.slider__tooltip::before {
+    text-transform: uppercase;
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+    font-weight: bold;
+    color: white;
+    font-weight: 40;
+    font-family: monospace;
+}
+
+.slider__tooltip::before {
+    --range: calc(
+        (70 - 
+        (var(--value) / 100 * 10)) * 1%
+    );
+    color: var(--work);
+    content: "WORK " counter(low) "%";
+    left: 1rem;
+}
+
+.slider__tooltip::after {
+    --range: 
+        calc((50 - (var(--value) / 100 * 10))
+         * 1%);
+    content: counter(high) "% LIFE";
+    color: var(--life);
+    right: 1rem;
+}
+
+/* inspired by 
+    https://codepen.io/jh3y/pen/oNVwLpK
+*/ 
