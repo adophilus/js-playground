@@ -25,6 +25,16 @@ const queryToQueryEmbedding = async (
 	};
 };
 
+const aiResponseToJson = (response: string): string[] => {
+	console.log("DEBUG:", { response });
+	const start = response.indexOf("[");
+	const end = response.lastIndexOf("]") + 1;
+	const json = response.substring(start, end);
+
+	const parsedJson = z.array(z.string()).parse(JSON.parse(json));
+	return parsedJson;
+};
+
 while (true) {
 	const userInput = await input({
 		message: "USER:",
@@ -72,17 +82,12 @@ while (true) {
 		],
 	});
 
-	const stringJsonOfQueries = rewritingResponse.message.content
-		.replace("```\n", "")
-		.replace("\n```", "");
-
-	console.log("DEBUG:", { stringJsonOfQueries });
-	const jsonArrayOfQueries = z
-		.array(z.string())
-		.parse(JSON.parse(stringJsonOfQueries));
+	const rewrittenQueries = aiResponseToJson(
+		rewritingResponse.message.content,
+	).concat(userInput);
 
 	const rewrittenQueryEmbeddings = await Promise.all(
-		jsonArrayOfQueries.map(queryToQueryEmbedding),
+		rewrittenQueries.map(queryToQueryEmbedding),
 	);
 
 	const results = await Promise.all(
