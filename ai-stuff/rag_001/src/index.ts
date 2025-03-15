@@ -9,14 +9,19 @@ while (true) {
 		theme: { prefix: "🧑‍💻" },
 	});
 
+	console.log({ userInput })
+
 	const userInputEmbedding = await ollama.embeddings({
 		model: "nomic-embed-text",
 		prompt: userInput,
 	});
 
+	console.log({ userInputEmbedding })
+
 	const serializedUserInputEmbedding = JSON.stringify(
 		userInputEmbedding.embedding,
 	);
+	console.log({ serializedUserInputEmbedding })
 
 	const results = await sql<Database["knowledgebase"]>`
 		SELECT * FROM vec_knowledgebase
@@ -25,9 +30,13 @@ while (true) {
 		db,
 	);
 
+	console.log({ results })
+
 	const serializedResults = results.rows
 		.map((row) => `QUESTION: ${row.question}\nANSWER: ${row.answer}\n`)
 		.join("\n");
+
+	console.log({ serializedResults })
 
 	process.stdout.write("🤖 ASSISTANT: ");
 	const response = await ollama

@@ -23,7 +23,7 @@
             easy-ps = import easy-purescript-nix { inherit pkgs; };
           in
           pkgs.mkShell {
-            packages = (with pkgs; [ nodejs ]) ++ (with easy-ps; [
+            packages = (with pkgs; [ nodejs esbuild ]) ++ (with easy-ps; [
               purs
               spago
               purescript-language-server

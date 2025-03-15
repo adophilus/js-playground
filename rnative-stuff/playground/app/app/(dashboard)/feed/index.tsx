@@ -67,14 +67,47 @@ const Header = () => (
 	</View>
 );
 
+const banners = [
+	{
+		image: "drone.png",
+		label: "A month with DJI Mini 3 Pro",
+		category: "DJI",
+		date: "Jul 10, 2023",
+	}
+]
+
 const Banner = () => (
 	<View className="p-6">
 		<View className="mb-4 shadow-md">
-			<View className="rounded-lg aspect-video bg-gray-300" />
+			<View className="rounded-lg w-full h-[180] bg-gray-300" />
 		</View>
 		<View className="h-[1px] bg-gray-300" />
 	</View>
 );
+
+const topStories = [
+	{
+		title: "Now Google’s Bard AI can talk & respond to visual prompts",
+		source: "The Verge",
+		category: "Google AI",
+		date: "Jul 13, 2023",
+		readingTime: "2 min read",
+	},
+	{
+		title: "WatchOS 10 preview: widgets all the way down",
+		source: "Gizmodo",
+		category: "Watch",
+		date: "Jul 10, 2023",
+		readingTime: "4 min read",
+	},
+	{
+		title: "How Gen Z are disrupting the definition of ‘prestigious’ jobs",
+		source: "Work Life",
+		category: "Jobs",
+		date: "Jul 10, 2023",
+		readingTime: "4 min read",
+	},
+];
 
 const TopStories = () => (
 	<View className="px-6">

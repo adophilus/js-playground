@@ -82,6 +82,8 @@ while (true) {
 		],
 	});
 
+	console.log("DEBUG:rewrittenQueriesRaw:", rewritingResponse.message.content);
+
 	const rewrittenQueries = aiResponseToJson(
 		rewritingResponse.message.content,
 	).concat(userInput);

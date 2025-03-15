@@ -1,0 +1,12 @@
+{
+  "name": "transitioning-navbar",
+  "scripts": {
+    "dev": "vite --port 3000"
+  },
+  "devDependencies": {
+    "vite": "^6.0.11"
+  },
+  "dependencies": {
+    "@unocss/reset": "^65.4.3"
+  }
+}

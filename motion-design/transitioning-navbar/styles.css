@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+:root {
+  --color-secondary: #f2e9e4;
+  --color-primary: #22223b;
+
+  --font-size-lg: 2rem;
+  --font-size-md: 1.5rem;
+  --font-size-base: 1rem;
+  --font-size-sm: 0.75rem;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--color-secondary);
+}
+
+.section {
+  width: min(90%, 960px);
+  margin-inline: auto;
+}
+
+.navbar {
+  border-bottom: 2px solid var(--color-primary);
+
+  .wrapper {
+    color: var(--color-primary);
+  }
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo header {
+      font-weight: 900;
+      font-size: var(--font-size-md);
+    }
+
+    .tabs {
+      display: flex;
+      column-gap: 1.5rem;
+
+      a {
+        padding-block: 1.5rem;
+        font-size: var(--font-size-base);
+      }
+
+      .dropdown {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        position: relative;
+
+        a {
+          z-index: 10;
+          display: flex;
+          column-gap: 0.5em;
+          align-items: center;
+        }
+
+        >a::after {
+          content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tcmlnaHQiPjxwYXRoIGQ9Im05IDE4IDYtNi02LTYiLz48L3N2Zz4=");
+          display: flex;
+          align-items: center;
+          vertical-align: middle;
+          text-align: center;
+          align-content: center;
+          width: 1.5rem;
+          height: 1.5rem;
+          transition: transform 350ms;
+        }
+
+        &:hover {
+          >a::after {
+            transform: translateX(0.5em);
+          }
+
+          >ul {
+            opacity: 100%;
+            scale: 100%;
+            z-index: 10;
+          }
+        }
+
+        &>ul {
+          transform: translateY(100%);
+          bottom: 0px;
+          position: absolute;
+          width: 200px;
+          border-radius: 0.5em;
+          background-color: var(--color-secondary);
+          border: 2px solid var(--color-primary);
+          overflow: clip;
+          opacity: 0%;
+          scale: 95%;
+          transition: opacity 350ms, scale 350ms;
+          z-index: -10;
+
+          li a {
+            width: 100%;
+            display: block;
+            text-wrap: nowrap;
+            padding: 0.5em 1.5em;
+            transition: background-color 350ms;
+
+            &:hover {
+              background-color: color-mix(in srgb, var(--color-secondary) 95%, #000000 5%);
+            }
+          }
+        }
+      }
+    }
+
+    .button {
+      border-radius: 2rem;
+      border: 2px solid var(--color-primary);
+      padding: 0.5em;
+      font-size: var(--font-size-base);
+      transition: color 350ms, background-color 350ms, box-shadow 350ms 350ms;
+
+      &:hover {
+        background-color: var(--color-primary);
+        color: var(--color-secondary);
+        box-shadow: 0px 0px 0px 2px var(--color-primary);
+      }
+    }
+  }
+}
