@@ -1,0 +1,58 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      '@huddle01/server-sdk':
+        specifier: ^2.5.7
+        version: 2.5.7
+    devDependencies:
+      '@types/node':
+        specifier: ^22.13.5
+        version: 22.13.5
+
+packages:
+
+  '@huddle01/server-sdk@2.5.7':
+    resolution: {integrity: sha512-EO+xA3p6IXMLwsyf8oV2t0v3IhnSW84EuHcGXEHJ56dn8sqxHRqIrMS6l73+ogK/eH/GuuakTrAWkBhHKHLNoA==}
+
+  '@types/node@22.13.5':
+    resolution: {integrity: sha512-+lTU0PxZXn0Dr1NBtC7Y8cR21AJr87dLLU953CWA6pMxxv/UDc7jYAY90upcrie1nRcD6XNG5HOYEDtgW5TxAg==}
+
+  hono@4.7.2:
+    resolution: {integrity: sha512-8V5XxoOF6SI12jkHkzX/6aLBMU5GEF5g387EjVSQipS0DlxWgWGSMeEayY3CRBjtTUQYwLHx9JYouWqKzy2Vng==}
+    engines: {node: '>=16.9.0'}
+
+  jose@5.10.0:
+    resolution: {integrity: sha512-s+3Al/p9g32Iq+oqXxkW//7jk2Vig6FF1CFqzVXoTUXt2qz89YWbL+OwS17NFYEvxC35n0FKeGO2LGYSxeM2Gg==}
+
+  undici-types@6.20.0:
+    resolution: {integrity: sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==}
+
+  zod@3.24.2:
+    resolution: {integrity: sha512-lY7CDW43ECgW9u1TcT3IoXHflywfVqDYze4waEz812jR/bZ8FHDsl7pFQoSZTz5N+2NqRXs8GBwnAwo3ZNxqhQ==}
+
+snapshots:
+
+  '@huddle01/server-sdk@2.5.7':
+    dependencies:
+      hono: 4.7.2
+      jose: 5.10.0
+      zod: 3.24.2
+
+  '@types/node@22.13.5':
+    dependencies:
+      undici-types: 6.20.0
+
+  hono@4.7.2: {}
+
+  jose@5.10.0: {}
+
+  undici-types@6.20.0: {}
+
+  zod@3.24.2: {}
