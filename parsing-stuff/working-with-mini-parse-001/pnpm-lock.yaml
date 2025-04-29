@@ -1,0 +1,60 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      mini-parse:
+        specifier: 0.6.0-rc4
+        version: 0.6.0-rc4
+      zod:
+        specifier: ^3.24.2
+        version: 3.24.2
+    devDependencies:
+      '@types/bun':
+        specifier: latest
+        version: 1.2.11
+
+packages:
+
+  '@types/bun@1.2.11':
+    resolution: {integrity: sha512-ZLbbI91EmmGwlWTRWuV6J19IUiUC5YQ3TCEuSHI3usIP75kuoA8/0PVF+LTrbEnVc8JIhpElWOxv1ocI1fJBbw==}
+
+  '@types/node@22.15.3':
+    resolution: {integrity: sha512-lX7HFZeHf4QG/J7tBZqrCAXwz9J5RD56Y6MpP0eJkka8p+K0RY/yBTW7CYFJ4VGCclxqOLKmiGP5juQc6MKgcw==}
+
+  bun-types@1.2.11:
+    resolution: {integrity: sha512-dbkp5Lo8HDrXkLrONm6bk+yiiYQSntvFUzQp0v3pzTAsXk6FtgVMjdQ+lzFNVAmQFUkPQZ3WMZqH5tTo+Dp/IA==}
+
+  mini-parse@0.6.0-rc4:
+    resolution: {integrity: sha512-p8+G8d+4Z+4ud0/Nyl3IO5T6tMTJ+UKULSyponsiy6VxbF0o4Maag8e8AaJj4VMix5/8ZBhxZ/AZlt9YcGBJXg==}
+
+  undici-types@6.21.0:
+    resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
+
+  zod@3.24.2:
+    resolution: {integrity: sha512-lY7CDW43ECgW9u1TcT3IoXHflywfVqDYze4waEz812jR/bZ8FHDsl7pFQoSZTz5N+2NqRXs8GBwnAwo3ZNxqhQ==}
+
+snapshots:
+
+  '@types/bun@1.2.11':
+    dependencies:
+      bun-types: 1.2.11
+
+  '@types/node@22.15.3':
+    dependencies:
+      undici-types: 6.21.0
+
+  bun-types@1.2.11:
+    dependencies:
+      '@types/node': 22.15.3
+
+  mini-parse@0.6.0-rc4: {}
+
+  undici-types@6.21.0: {}
+
+  zod@3.24.2: {}
