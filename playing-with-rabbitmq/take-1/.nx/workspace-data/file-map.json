@@ -1,0 +1,51 @@
+{
+  "version": "6.0",
+  "nxVersion": "21.2.1",
+  "pathMappings": {},
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "projectFileMap": {},
+    "nonProjectFiles": [
+      {
+        "file": "apps/auth/package.json",
+        "hash": "4498066128496332765"
+      },
+      {
+        "file": "apps/auth/src/index.ts",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "apps/auth/tsconfig.json",
+        "hash": "4964477190824626090"
+      },
+      {
+        "file": "apps/notification/package.json",
+        "hash": "4498066128496332765"
+      },
+      {
+        "file": "apps/notification/tsconfig.json",
+        "hash": "4964477190824626090"
+      },
+      {
+        "file": "biome.json",
+        "hash": "1091700553567426986"
+      },
+      {
+        "file": "nx.json",
+        "hash": "18336426213955174907"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "17383608994111444139"
+      },
+      {
+        "file": "package.json",
+        "hash": "16891526308236381684"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "3244421341483603138"
+      }
+    ]
+  }
+}
