@@ -30,7 +30,8 @@ export class UsersRepo extends Effect.Service<UsersRepo>()(
         )
 
       return { ...repo, findByAccessToken } as const
-    })
+    }),
+    dependencies: [SqlLive]
   }
 ) {
   static Test = makeTestLayer(UsersRepo)({})
