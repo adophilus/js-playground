@@ -1,6 +1,6 @@
 {
   "extends": "../../tsconfig.base.json",
-  "include": ["src"],
+  "include": ["src", "migrations"],
   "compilerOptions": {
     "types": ["node"],
     "outDir": "dist",

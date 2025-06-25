@@ -3,4 +3,4 @@ import { AccountsApi } from '../Accounts/Api'
 
 export class Api extends HttpApi.empty
   .add(AccountsApi)
-  .annotate(OpenApi.Title, 'Groups API') {}
+  .annotate(OpenApi.Title, 'Auth API') {}

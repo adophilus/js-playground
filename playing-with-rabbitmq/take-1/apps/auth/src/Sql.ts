@@ -2,7 +2,7 @@ import { NodeContext } from '@effect/platform-node'
 import { SqlClient } from '@effect/sql'
 import { SqliteClient, SqliteMigrator } from '@effect/sql-sqlite-node'
 import { identity, Layer } from 'effect'
-import { fileURLToPath } from 'node:url'
+import { join, normalize } from 'node:path'
 import { makeTestLayer } from './lib/Layer'
 
 const ClientLive = SqliteClient.layer({
@@ -11,7 +11,7 @@ const ClientLive = SqliteClient.layer({
 
 const MigratorLive = SqliteMigrator.layer({
   loader: SqliteMigrator.fromFileSystem(
-    fileURLToPath(new URL('./migrations', import.meta.url))
+    normalize(join(__dirname, '../migrations'))
   )
 }).pipe(Layer.provide(NodeContext.layer))
 

@@ -1,3 +1,11 @@
----
 packages:
-- ./apps/*
+  - ./apps/*
+ignoredBuiltDependencies:
+  - '@biomejs/biome'
+  - '@parcel/watcher'
+  - esbuild
+  - msgpackr-extract
+  - nx
+  - protobufjs
+onlyBuiltDependencies:
+  - better-sqlite3

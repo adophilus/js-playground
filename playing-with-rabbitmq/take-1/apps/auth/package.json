@@ -1,7 +1,7 @@
 {
   "name": "auth",
   "scripts": {
-    "dev": "bun --watch ./src/main.ts",
+    "dev": "tsx --watch ./src/main.ts",
     "check": "tsc -b tsconfig.json"
   },
   "dependencies": {

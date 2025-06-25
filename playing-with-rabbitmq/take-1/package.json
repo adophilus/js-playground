@@ -19,6 +19,7 @@
     "@effect/experimental": "^0.30.13",
     "@effect/opentelemetry": "^0.39.7",
     "@effect/platform": "^0.69.12",
+    "@effect/platform-bun": "^0.72.1",
     "@effect/platform-node": "^0.64.13",
     "@effect/sql": "^0.18.13",
     "@effect/sql-sqlite-node": "^0.19.2",
@@ -28,6 +29,7 @@
     "@opentelemetry/exporter-trace-otlp-http": "^0.54.2",
     "@opentelemetry/sdk-trace-base": "^1.27.0",
     "@opentelemetry/sdk-trace-node": "^1.27.0",
+    "better-sqlite3": "^12.1.0",
     "effect": "^3.10.7",
     "ulidx": "^2.4.1",
     "uuid": "^11.0.2"
