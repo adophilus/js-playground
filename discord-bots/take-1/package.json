@@ -1,0 +1,15 @@
+{
+	"name": "take-1",
+	"module": "./src/index.ts",
+	"type": "module",
+	"private": true,
+	"peerDependencies": {
+		"typescript": "^5"
+	},
+	"dependencies": {
+		"discord.js-selfbot-v13": "^3.6.1"
+	},
+	"devDependencies": {
+		"@types/node": "^22.15.29"
+	}
+}

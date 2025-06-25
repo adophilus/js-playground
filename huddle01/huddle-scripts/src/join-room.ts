@@ -1,6 +1,6 @@
 import { AccessToken, Role } from '@huddle01/server-sdk/auth';
 
-const roomId = 'gcz-oqep-bwm'
+const roomId = 'rdn-hpzl-dhk'
 
 const accessToken = new AccessToken({
   apiKey: process.env.HUDDLE01_API_KEY!,

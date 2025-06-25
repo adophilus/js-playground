@@ -1,0 +1,75 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      '@hono/zod-validator':
+        specifier: ^0.7.0
+        version: 0.7.0(hono@4.7.11)(zod@3.25.64)
+      hono:
+        specifier: ^4.7.11
+        version: 4.7.11
+      zod:
+        specifier: ^3.25.64
+        version: 3.25.64
+    devDependencies:
+      '@types/bun':
+        specifier: latest
+        version: 1.2.16
+
+packages:
+
+  '@hono/zod-validator@0.7.0':
+    resolution: {integrity: sha512-qe2ZE6sHFE98dcUrbYMtS3bAV8hqcCOflykvZga2S7XhmNSZzT+dIz4OuMILsjLHkJw9JMn912/dB7dQOmuPvg==}
+    peerDependencies:
+      hono: '>=3.9.0'
+      zod: ^3.25.0
+
+  '@types/bun@1.2.16':
+    resolution: {integrity: sha512-1aCZJ/6nSiViw339RsaNhkNoEloLaPzZhxMOYEa7OzRzO41IGg5n/7I43/ZIAW/c+Q6cT12Vf7fOZOoVIzb5BQ==}
+
+  '@types/node@24.0.1':
+    resolution: {integrity: sha512-MX4Zioh39chHlDJbKmEgydJDS3tspMP/lnQC67G3SWsTnb9NeYVWOjkxpOSy4oMfPs4StcWHwBrvUb4ybfnuaw==}
+
+  bun-types@1.2.16:
+    resolution: {integrity: sha512-ciXLrHV4PXax9vHvUrkvun9VPVGOVwbbbBF/Ev1cXz12lyEZMoJpIJABOfPcN9gDJRaiKF9MVbSygLg4NXu3/A==}
+
+  hono@4.7.11:
+    resolution: {integrity: sha512-rv0JMwC0KALbbmwJDEnxvQCeJh+xbS3KEWW5PC9cMJ08Ur9xgatI0HmtgYZfOdOSOeYsp5LO2cOhdI8cLEbDEQ==}
+    engines: {node: '>=16.9.0'}
+
+  undici-types@7.8.0:
+    resolution: {integrity: sha512-9UJ2xGDvQ43tYyVMpuHlsgApydB8ZKfVYTsLDhXkFL/6gfkp+U8xTGdh8pMJv1SpZna0zxG1DwsKZsreLbXBxw==}
+
+  zod@3.25.64:
+    resolution: {integrity: sha512-hbP9FpSZf7pkS7hRVUrOjhwKJNyampPgtXKc3AN6DsWtoHsg2Sb4SQaS4Tcay380zSwd2VPo9G9180emBACp5g==}
+
+snapshots:
+
+  '@hono/zod-validator@0.7.0(hono@4.7.11)(zod@3.25.64)':
+    dependencies:
+      hono: 4.7.11
+      zod: 3.25.64
+
+  '@types/bun@1.2.16':
+    dependencies:
+      bun-types: 1.2.16
+
+  '@types/node@24.0.1':
+    dependencies:
+      undici-types: 7.8.0
+
+  bun-types@1.2.16:
+    dependencies:
+      '@types/node': 24.0.1
+
+  hono@4.7.11: {}
+
+  undici-types@7.8.0: {}
+
+  zod@3.25.64: {}

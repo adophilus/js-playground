@@ -1,7 +1,10 @@
 {
   "name": "auth",
   "scripts": {
-    "dev": "tsx --watch src/main.ts",
+    "dev": "bun --watch ./src/main.ts",
     "check": "tsc -b tsconfig.json"
+  },
+  "dependencies": {
+    "@effect/sql-sqlite-bun": "^0.41.0"
   }
 }

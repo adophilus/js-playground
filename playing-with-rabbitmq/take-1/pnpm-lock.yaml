@@ -82,7 +82,11 @@ importers:
         specifier: ^5.6.3
         version: 5.8.3
 
-  apps/auth: {}
+  apps/auth:
+    dependencies:
+      '@effect/sql-sqlite-bun':
+        specifier: ^0.41.0
+        version: 0.41.0(@effect/experimental@0.30.16(@effect/platform-node@0.64.33(@effect/platform@0.69.31(effect@3.16.8))(effect@3.16.8))(@effect/platform@0.69.31(effect@3.16.8))(effect@3.16.8)(ws@8.18.2))(@effect/platform@0.69.31(effect@3.16.8))(@effect/sql@0.18.16(@effect/experimental@0.30.16(@effect/platform-node@0.64.33(@effect/platform@0.69.31(effect@3.16.8))(effect@3.16.8))(@effect/platform@0.69.31(effect@3.16.8))(effect@3.16.8)(ws@8.18.2))(@effect/platform@0.69.31(effect@3.16.8))(effect@3.16.8))(effect@3.16.8)
 
   apps/notification: {}
 
@@ -200,6 +204,14 @@ packages:
     resolution: {integrity: sha512-a4JQHieGF/kxH8ZSfEpVrxbdX9haAKFyoOQT5tXiiWoXSgvm+iQ/41FhXqwkWeMddh0hbYJmvmkEljcXUuxWcQ==}
     peerDependencies:
       effect: ^3.10.19
+
+  '@effect/sql-sqlite-bun@0.41.0':
+    resolution: {integrity: sha512-DFztaxrMlX8W4TGdxt9TPRSyhi69U/9RFJGUpL+MIrHD7ECY3o/oc5J3PU42uq8kfE+Wgn8aTbdWY+Rd8X/s9w==}
+    peerDependencies:
+      '@effect/experimental': ^0.51.0
+      '@effect/platform': ^0.87.0
+      '@effect/sql': ^0.40.0
+      effect: ^3.16.9
 
   '@effect/sql-sqlite-node@0.19.5':
     resolution: {integrity: sha512-uxafCs6dPI6iG5f1DZFEL6w3GMS47p9wIoQ6oS3I0VjW/yH5bKrhhXEwxeLsdRGXtSLXPcW1w9WTB91csGVZKQ==}
@@ -1923,6 +1935,14 @@ snapshots:
       effect: 3.16.8
       find-my-way-ts: 0.1.5
       multipasta: 0.2.5
+
+  '@effect/sql-sqlite-bun@0.41.0(@effect/experimental@0.30.16(@effect/platform-node@0.64.33(@effect/platform@0.69.31(effect@3.16.8))(effect@3.16.8))(@effect/platform@0.69.31(effect@3.16.8))(effect@3.16.8)(ws@8.18.2))(@effect/platform@0.69.31(effect@3.16.8))(@effect/sql@0.18.16(@effect/experimental@0.30.16(@effect/platform-node@0.64.33(@effect/platform@0.69.31(effect@3.16.8))(effect@3.16.8))(@effect/platform@0.69.31(effect@3.16.8))(effect@3.16.8)(ws@8.18.2))(@effect/platform@0.69.31(effect@3.16.8))(effect@3.16.8))(effect@3.16.8)':
+    dependencies:
+      '@effect/experimental': 0.30.16(@effect/platform-node@0.64.33(@effect/platform@0.69.31(effect@3.16.8))(effect@3.16.8))(@effect/platform@0.69.31(effect@3.16.8))(effect@3.16.8)(ws@8.18.2)
+      '@effect/platform': 0.69.31(effect@3.16.8)
+      '@effect/sql': 0.18.16(@effect/experimental@0.30.16(@effect/platform-node@0.64.33(@effect/platform@0.69.31(effect@3.16.8))(effect@3.16.8))(@effect/platform@0.69.31(effect@3.16.8))(effect@3.16.8)(ws@8.18.2))(@effect/platform@0.69.31(effect@3.16.8))(effect@3.16.8)
+      '@opentelemetry/semantic-conventions': 1.34.0
+      effect: 3.16.8
 
   '@effect/sql-sqlite-node@0.19.5(@effect/platform@0.69.31(effect@3.16.8))(@effect/sql@0.18.16(@effect/experimental@0.30.16(@effect/platform-node@0.64.33(@effect/platform@0.69.31(effect@3.16.8))(effect@3.16.8))(@effect/platform@0.69.31(effect@3.16.8))(effect@3.16.8)(ws@8.18.2))(@effect/platform@0.69.31(effect@3.16.8))(effect@3.16.8))(effect@3.16.8)':
     dependencies:

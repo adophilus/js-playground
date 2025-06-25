@@ -21,7 +21,6 @@ const matcher = new RegexMatchers<Kind>({
 const command = kind<Kind>("command");
 const address = kind<Kind>("address");
 const sol = kind<Kind>("amount");
-const ws = kind<Kind>("ws");
 
 const stream = new FilterStream(
 	new MatchersStream(sourceText, matcher),

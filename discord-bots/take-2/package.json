@@ -1,0 +1,25 @@
+{
+  "name": "take-2",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "tsx --watch src/index.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "tsx": "^4.19.4",
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@effect/platform-bun": "^0.69.13",
+    "@effect/platform-node": "^0.85.13",
+    "@t3-oss/env-core": "^0.13.7",
+    "dfx": "^0.120.1",
+    "discord.js": "^14.19.3",
+    "effect": "^3.16.5",
+    "zod": "^3.25.56"
+  }
+}

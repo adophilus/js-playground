@@ -1,0 +1,19 @@
+{
+  "name": "token-types",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@oslojs/encoding": "^1.1.0",
+    "jose": "^6.0.11"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
