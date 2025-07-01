@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>OpenAPI Demo</title>
+  <link rel="stylesheet" type="text/css" href="/asciinema-player.css" />
+</head>
+
+<body>
+  <div id="demo"></div>
+  <script src="/asciinema-player.min.js"></script>
+  <script type="module">
+    import * as AsciinemaPlayer from 'asciinema-player';
+
+    AsciinemaPlayer.create('./openapi-demo.cast', document.getElementById('demo'));
+  </script>
+</body>
+
+</html>
