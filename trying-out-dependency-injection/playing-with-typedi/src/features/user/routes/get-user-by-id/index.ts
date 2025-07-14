@@ -1,1 +1,1 @@
-export { default as GetUserByIdRouter } from "./route";
+export { default as GetUserByIdRoute } from "./route";

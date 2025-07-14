@@ -4,20 +4,23 @@ import { UserRepository } from "./interface";
 import { ulid } from "ulidx";
 import { Result } from "true-myth";
 
-class InMemoryUserRespository extends UserRepository {
+class InMemoryUserRespository implements UserRepository {
 	private userStore: Record<string, User>;
 
 	constructor() {
-		super();
-
 		const users = faker.helpers.multiple(
-			(): User => ({
-				id: ulid(),
-				name: faker.person.fullName(),
-				username: faker.internet.username(),
-				followers: faker.number.int({ min: 0, max: 1000 }),
-				posts: faker.number.int({ min: 0, max: 1000 }),
-			}),
+			(): User => {
+				const firstName = faker.person.firstName();
+				const lastName = faker.person.lastName();
+
+				return {
+					id: ulid(),
+					name: faker.person.fullName({ firstName, lastName }),
+					username: faker.internet.username({ firstName, lastName }),
+					followers: faker.number.int({ min: 0, max: 1000 }),
+					posts: faker.number.int({ min: 0, max: 1000 }),
+				};
+			},
 			{ count: { min: 10, max: 100 } },
 		);
 
@@ -26,6 +29,12 @@ class InMemoryUserRespository extends UserRepository {
 			{},
 		);
 	}
+
+	public async findAll(): Promise<Result<User[], "UNEXPECTED_ERROR">> {
+		const users = Object.values(this.userStore);
+		return Result.ok(users);
+	}
+
 	public async findById(
 		id: string,
 	): Promise<Result<User | null, "UNEXPECTED_ERROR">> {

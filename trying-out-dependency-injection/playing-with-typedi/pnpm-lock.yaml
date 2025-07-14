@@ -14,6 +14,9 @@ importers:
       '@hono/zod-validator':
         specifier: ^0.7.1
         version: 0.7.1(hono@4.8.4)(zod@4.0.5)
+      '@n8n/di':
+        specifier: ^0.2.0
+        version: 0.2.0
       hono:
         specifier: ^4.8.4
         version: 4.8.4
@@ -45,6 +48,9 @@ packages:
     peerDependencies:
       hono: '>=3.9.0'
       zod: ^3.25.0 || ^4.0.0
+
+  '@n8n/di@0.2.0':
+    resolution: {integrity: sha512-26uNpyfABBiBx0dN/6I+PE8NAMIz2GbAtJVpMBDuP55tQNDVhDf/YEd297mRYU42Pn6L+CytelFEChhTKk/+bA==}
 
   '@types/bun@1.2.18':
     resolution: {integrity: sha512-Xf6RaWVheyemaThV0kUfaAUvCNokFr+bH8Jxp+tTZfx7dAPA8z9ePnP9S9+Vspzuxxx9JRAXhnyccRj3GyCMdQ==}
@@ -98,6 +104,10 @@ snapshots:
     dependencies:
       hono: 4.8.4
       zod: 4.0.5
+
+  '@n8n/di@0.2.0':
+    dependencies:
+      reflect-metadata: 0.2.2
 
   '@types/bun@1.2.18(@types/react@19.1.8)':
     dependencies:

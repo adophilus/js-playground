@@ -1,6 +1,6 @@
 import "reflect-metadata";
 
-import { Container, Service, Inject } from "typedi";
+import { Container, Service, Inject } from "@n8n/di";
 
 interface Factory {
 	create(): void;

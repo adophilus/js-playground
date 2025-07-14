@@ -1,1 +1,3 @@
-export { app, type App } from "./app";
+import "./bootstrap";
+
+export * from "./app";

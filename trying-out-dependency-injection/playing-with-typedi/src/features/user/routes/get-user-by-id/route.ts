@@ -1,11 +1,11 @@
 import { Hono } from "hono";
-import Container from "typedi";
-import { USER_SERVICE_KEY, UserService } from "../../service";
+import Container from "@n8n/di";
+import { UserService } from "../../service";
 
 export default new Hono().get("/:id", async (c) => {
 	const id = c.req.param("id");
 
-	const userService = Container.get<UserService>(USER_SERVICE_KEY);
+	const userService = Container.get(UserService);
 
 	const findUserByIdResult = await userService.findById(id);
 	if (findUserByIdResult.isErr) {

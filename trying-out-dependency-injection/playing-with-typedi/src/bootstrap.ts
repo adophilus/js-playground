@@ -1,11 +1,14 @@
-import Container from "typedi";
-import { USER_SERVICE_KEY, UserServiceImpl } from "./features/user/service";
+import Container from "@n8n/di";
+import { UserService, UserServiceImpl } from "./features/user/service";
 import {
 	InMemoryUserRespository,
-	USER_REPOSITORY_KEY,
+	UserRepository,
 } from "./features/user/repository";
 
-Container.set(USER_REPOSITORY_KEY, InMemoryUserRespository);
-Container.set(USER_SERVICE_KEY, UserServiceImpl);
+const userRepository = new InMemoryUserRespository();
+const userService = new UserServiceImpl(userRepository);
 
-console.log('Registered Dependencies')
+Container.set(UserRepository, UserRepository);
+Container.set(UserService, userService);
+
+console.log("Registered Dependencies");
