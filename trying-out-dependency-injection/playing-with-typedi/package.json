@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "playing-with-typedi",
+  "exports": {
+    ".": "./src/index.ts",
+    "./*": "./src/*"
+  },
+  "scripts": {
+    "dev": "bun --hot ./scripts/dev.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^9.9.0",
+    "@hono/zod-validator": "^0.7.1",
+    "hono": "^4.8.4",
+    "reflect-metadata": "^0.2.2",
+    "true-myth": "^9.0.1",
+    "typedi": "^0.10.0",
+    "ulidx": "^2.4.1"
+  }
+}
