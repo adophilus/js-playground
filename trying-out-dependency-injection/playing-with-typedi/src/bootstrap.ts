@@ -1,4 +1,4 @@
-import Container from "@n8n/di";
+import { Container } from "@n8n/di";
 import { UserService, UserServiceImpl } from "./features/user/service";
 import {
 	InMemoryUserRespository,
@@ -8,7 +8,7 @@ import {
 const userRepository = new InMemoryUserRespository();
 const userService = new UserServiceImpl(userRepository);
 
-Container.set(UserRepository, UserRepository);
+Container.set(UserRepository, userRepository);
 Container.set(UserService, userService);
 
 console.log("Registered Dependencies");

@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import Container from "@n8n/di";
+import { Container } from "@n8n/di";
 import { UserService } from "../../service";
 
 export default new Hono().get("/:id", async (c) => {
