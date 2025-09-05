@@ -18,6 +18,7 @@
     "hono": "^4.8.4",
     "reflect-metadata": "^0.2.2",
     "true-myth": "^9.0.1",
+    "tsyringe": "^4.10.0",
     "typedi": "^0.10.0",
     "ulidx": "^2.4.1"
   }

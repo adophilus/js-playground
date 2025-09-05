@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "start": "bun ./src/index.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/nodemailer": "^6.4.17"
+  },
+  "dependencies": {
+    "@t3-oss/env-core": "^0.13.8",
+    "jsx-email": "^2.7.2",
+    "nodemailer": "^7.0.5",
+    "react": "^19.1.0",
+    "zod": "^4.0.5"
+  }
+}
