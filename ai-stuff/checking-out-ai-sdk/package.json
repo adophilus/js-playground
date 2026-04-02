@@ -1,0 +1,16 @@
+{
+  "name": "checking-out-ai-sdk",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "ai": "^6.0.67",
+    "zhipu-ai-provider": "^0.2.2"
+  }
+}

@@ -1,0 +1,9 @@
+litellm_settings:
+  ssl_verify: false
+model_list:
+  - model_name: glm-4.7
+    litellm_params:
+      model: zai/glm-4
+      api_key: "os.environ/ZHIPUAI_API_KEY"
+      api_base: "https://api.z.ai/api/coding/paas/v4"
+

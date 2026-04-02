@@ -1,0 +1,23 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    devDependencies:
+      envsitter:
+        specifier: ^0.0.4
+        version: 0.0.4
+
+packages:
+
+  envsitter@0.0.4:
+    resolution: {integrity: sha512-Uxy5XpYQ9B6+70cQrIOKQMxaitKjMDxaK1uPaivhtVbYxQMRhJzdvx+6AgSrRrZBcnuPlLbnVPXrn7PXpi+veg==}
+    hasBin: true
+
+snapshots:
+
+  envsitter@0.0.4: {}
