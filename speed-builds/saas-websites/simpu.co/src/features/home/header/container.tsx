@@ -12,5 +12,6 @@ const styles = stylex.create({
 			"@media(min-width: 1024px)": "3rem",
 		},
 		display: "flex",
+		justifyContent: 'space-between',
 	},
 });

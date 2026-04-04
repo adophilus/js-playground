@@ -1,4 +1,4 @@
-type SubItem = {
+export type SubItem = {
 	label: string;
 	description: string;
 	link: string;
