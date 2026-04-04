@@ -12,7 +12,7 @@ export const Links = () => (
 
 const styles = stylex.create({
 	container: {
-		display: "flex",
+		display: { default: "none", "@media (min-width: 1024px)": "flex" },
 		gap: "3rem",
 	},
 });

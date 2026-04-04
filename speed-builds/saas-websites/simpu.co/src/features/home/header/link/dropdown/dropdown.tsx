@@ -22,6 +22,7 @@ export const Dropdown: FunctionComponent<{ item: Item }> = ({ item }) => (
 const styles = stylex.create({
 	container: {
 		position: "absolute",
+		zIndex: 10,
 		backgroundColor: "rgb(255 255 255)",
 		display: vars.display,
 		rowGap: "1rem",
