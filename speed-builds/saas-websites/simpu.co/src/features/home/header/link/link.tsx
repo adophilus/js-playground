@@ -1,11 +1,11 @@
 import { ChevronDownIcon } from "lucide-react";
 import * as stylex from "@stylexjs/stylex";
-import type { Item } from "../types";
+import type { TItem } from "../types";
 import type { FunctionComponent } from "react";
 import { Dropdown } from "./dropdown";
 import { vars as dropdownVars } from "./dropdown/variables.stylex";
 
-export const Link: FunctionComponent<{ item: Item }> = ({ item }) => (
+export const Link: FunctionComponent<{ item: TItem }> = ({ item }) => (
 	<div {...stylex.props(styles.container)}>
 		<button type="button" {...stylex.props(styles.button)}>
 			{item.label} <ChevronDownIcon width={20} height={20} />

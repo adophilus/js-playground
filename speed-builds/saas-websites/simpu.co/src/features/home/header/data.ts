@@ -1,6 +1,6 @@
-import type { Item } from "./types";
+import type { TItem } from "./types";
 
-export const items: Item[] = [
+export const items: TItem[] = [
 	{
 		label: "Products",
 		orientation: "vertical",

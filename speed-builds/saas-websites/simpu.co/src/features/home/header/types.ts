@@ -1,11 +1,11 @@
-export type SubItem = {
+export type TSubItem = {
 	label: string;
 	description: string;
 	link: string;
 };
 
-export type Item = {
+export type TItem = {
 	label: string;
 	orientation: "horizontal" | "vertical";
-	items: SubItem[];
+	items: TSubItem[];
 };

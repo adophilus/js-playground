@@ -1,8 +1,8 @@
 import type { FunctionComponent } from "react";
-import type { SubItem } from "../../types";
+import type { TSubItem } from "../../types";
 import * as stylex from "@stylexjs/stylex";
 
-export const DropdownItem: FunctionComponent<{ item: SubItem }> = ({
+export const DropdownItem: FunctionComponent<{ item: TSubItem }> = ({
 	item,
 }) => (
 	<li {...stylex.props(styles.container)}>

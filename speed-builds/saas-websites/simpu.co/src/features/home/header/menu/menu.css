@@ -1,0 +1,6 @@
+@starting-style {
+	dialog:open {
+		opacity: 0;
+		transform: translateX(100%);
+	}
+}

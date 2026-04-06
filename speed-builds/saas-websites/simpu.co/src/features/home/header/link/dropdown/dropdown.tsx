@@ -1,10 +1,10 @@
 import type { FunctionComponent } from "react";
-import type { Item } from "../../types";
+import type { TItem } from "../../types";
 import * as stylex from "@stylexjs/stylex";
 import { DropdownItem } from "./item";
 import { vars } from "./variables.stylex";
 
-export const Dropdown: FunctionComponent<{ item: Item }> = ({ item }) => (
+export const Dropdown: FunctionComponent<{ item: TItem }> = ({ item }) => (
 	<ul
 		{...stylex.props(
 			styles.container,
