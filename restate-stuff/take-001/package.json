@@ -1,0 +1,35 @@
+{
+  "name": "take-001",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "dev": "tsx --watch ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "^11.1.3",
+      "onFail": "download"
+    }
+  },
+  "type": "module",
+  "dependencies": {
+    "@ai-sdk/openai": "^3.0.71",
+    "@ai-sdk/openai-compatible": "^2.0.50",
+    "@restatedev/restate-sdk": "^1.14.5",
+    "@restatedev/vercel-ai-middleware": "^0.3.1",
+    "ai": "^6.0.205",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@restatedev/restate": "^1.6.2",
+    "@restatedev/restate-server": "^1.6.2",
+    "@types/node": "^25.9.3",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3"
+  }
+}
