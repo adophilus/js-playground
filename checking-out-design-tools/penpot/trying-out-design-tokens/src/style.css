@@ -1,0 +1,8 @@
+@import "../build/css/_variables.css";
+
+.main-button {
+  font-family: Poppins;
+  color: var(--global-white);
+  border-radius: var(--global-md);
+  background-color: var(--global-primary);
+}
