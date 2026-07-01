@@ -8,3 +8,4 @@ images.db
 *.db
 out/
 prototype/
+lama_fp32.onnx

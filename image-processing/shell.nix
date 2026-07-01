@@ -8,6 +8,7 @@ pkgs.mkShell {
       p.opencv4
       p.pillow
       p.pytesseract
+      p.onnxruntime
     ]))
     pkgs.tesseract4
   ];
