@@ -1,0 +1,10 @@
+# python
+.venv/
+__pycache__/
+*.pyc
+
+# generated pipeline artifacts (regenerable, not source)
+images.db
+*.db
+out/
+prototype/
