@@ -1,0 +1,9 @@
+{
+  "name": "image-watermark-monorepo",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm -r --parallel run dev",
+    "build": "pnpm -r run build"
+  },
+  "packageManager": "pnpm@11.1.3"
+}
