@@ -14,7 +14,10 @@ const allExtensions = [
   ".json",
 ];
 
-const babelInclude = [/[\\/]src[\\/]/, /[\\/]react-strict-dom[\\/]/];
+const babelInclude = [
+  /[\\/]src[\\/]/,
+  /[\\/]node_modules[\\/]react-strict-dom[\\/]/,
+];
 
 export default defineConfig(() => ({
   plugins: [

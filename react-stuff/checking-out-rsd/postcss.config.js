@@ -1,4 +1,4 @@
-import babelConfig from "./babel.config.cjs";
+import babelConfig from "./babel.config.js";
 
 export default {
   plugins: {
@@ -7,6 +7,5 @@ export default {
       babelConfig,
       useLayers: true,
     },
-    autoprefixer: {},
   },
 };

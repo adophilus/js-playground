@@ -1,4 +1,5 @@
-import "@/styles/globals.css";
+import "./styles/globals.css";
+// import "@csstools/normalize.css";
 
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
