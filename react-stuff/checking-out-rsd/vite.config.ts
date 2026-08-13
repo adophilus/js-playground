@@ -1,0 +1,30 @@
+import { defineConfig } from "vite";
+import viteReact from "@vitejs/plugin-react";
+import viteBabel from "vite-plugin-babel";
+
+const webOnlyExtensions = [".web.js", ".web.jsx", ".web.ts", ".web.tsx"];
+const allExtensions = [
+  ...webOnlyExtensions,
+  ".mjs",
+  ".js",
+  ".mts",
+  "..ts",
+  ".jsx",
+  ".tsx",
+  ".json",
+];
+
+const babelInclude = [/[\\/]src[\\/]/];
+
+export default defineConfig(() => ({
+  plugins: [
+    viteReact(),
+    viteBabel({ include: babelInclude, filter: /\.[cm]?[jt]sx$/ }),
+  ],
+  resolve: { tsconfigPaths: true, extensions: allExtensions },
+  optimizeDeps: {
+    rolldownOptions: {
+      resolve: { extensions: allExtensions },
+    },
+  },
+}));
