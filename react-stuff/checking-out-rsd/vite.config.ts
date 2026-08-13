@@ -8,13 +8,13 @@ const allExtensions = [
   ".mjs",
   ".js",
   ".mts",
-  "..ts",
+  ".ts",
   ".jsx",
   ".tsx",
   ".json",
 ];
 
-const babelInclude = [/[\\/]src[\\/]/];
+const babelInclude = [/[\\/]src[\\/]/, /[\\/]react-strict-dom[\\/]/];
 
 export default defineConfig(() => ({
   plugins: [
