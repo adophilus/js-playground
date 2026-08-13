@@ -21,25 +21,34 @@ body {
 	display: grid;
 	grid-template-columns:
 		[full-start] minmax(var(--min-padding), 1fr)
-		[content-start] min(calc(100% - var(--min-padding) * 2), 640px)
+		[content-start] repeat(
+			12,
+			calc(min(calc(100% - var(--min-padding) * 2), 640px) / 12)
+		)
 		[content-end] minmax(var(--min-padding), 1fr)
 		[full-end];
 }
 
 .full-bleed {
 	grid-column-start: 1;
-	grid-column-end: 4;
+	grid-column-end: 15;
 }
 
 img.banner {
-	height: 300px;
+	height: 320px;
 	width: 100%;
 	object-fit: cover;
 }
 
 .center-layout {
 	grid-column-start: 2;
-	grid-column-end: 3;
+	grid-column-end: 14;
+}
+
+.highlight-marker {
+	width: 100%;
+	height: 100%;
+	background-color: transparent;
 }
 
 .body-text {
@@ -51,4 +60,15 @@ img.banner {
 	font-size: var(--text-size-heading);
 	font-weight: 500;
 	line-height: var(--text-heading-leading);
+}
+
+.half-split-right-bleed {
+	grid-column-start: 6;
+	grid-column-end: 15;
+}
+
+.half-split-right-bleed img {
+	width: 100%;
+	object-fit: cover;
+	height: 600px;
 }
