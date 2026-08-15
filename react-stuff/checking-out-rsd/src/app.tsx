@@ -1,7 +1,9 @@
 import { html, css } from "react-strict-dom";
+import { tokens } from "./styles/tokens.css";
+import { Header } from "./components/header";
 
-export const App = () => <html.div style={styles.container} />;
-
-const styles = css.create({
-  container: { backgroundColor: "#ff0000", height: "100px", width: "100px" },
-});
+export const App = () => (
+  <>
+    <Header />
+  </>
+);
