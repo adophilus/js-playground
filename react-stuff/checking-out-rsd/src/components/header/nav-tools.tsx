@@ -1,30 +1,25 @@
+import { HugeiconsIcon } from "@hugeicons/react";
 import { tokens } from "../../styles/tokens.css";
 import { html, css } from "react-strict-dom";
+import {
+  BellDotIcon,
+  InformationCircleIcon,
+  Search01Icon,
+} from "@hugeicons/core-free-icons";
 
 const items = [
-  {
-    label: "Overview",
-    link: "/",
-    isActive: true,
-  },
-  { label: "Activity", link: "/activity" },
-  { label: "Manage", link: "/manage" },
-  { label: "Program", link: "/program" },
-  { label: "Account", link: "/account" },
-  { label: "Reports", link: "/reports" },
+  { label: "Search", icon: Search01Icon },
+  { label: "Notifications", icon: BellDotIcon },
+  { label: "Info", icon: InformationCircleIcon },
 ];
 
-export const NavLinks = () => (
+export const NavTools = () => (
   <html.ul style={styles.container}>
     {items.map((item) => (
-      <html.ol key={item.link}>
-        <html.a href={item.link}>
-          <html.button
-            style={[styles.item, item.isActive && styles.itemActive]}
-          >
-            {item.label}
-          </html.button>
-        </html.a>
+      <html.ol key={item.label}>
+        <html.button style={styles.item}>
+          <HugeiconsIcon icon={item.icon} />
+        </html.button>
       </html.ol>
     ))}
   </html.ul>

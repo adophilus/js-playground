@@ -1,18 +1,7 @@
 import { css, html } from "react-strict-dom";
-import { HugeiconsIcon } from "@hugeicons/react";
-import {
-  BellDotIcon,
-  InformationCircleIcon,
-  Search01Icon,
-} from "@hugeicons/core-free-icons";
 import { tokens } from "../../styles/tokens.css";
 import { NavLinks } from "./nav-links";
-
-const extras = [
-  { label: "Search", icon: Search01Icon },
-  { label: "Notifications", icon: BellDotIcon },
-  { label: "Info", icon: InformationCircleIcon },
-];
+import { NavTools } from "./nav-tools";
 
 export const Header = () => (
   <html.nav style={styles.navContainer}>
@@ -21,13 +10,7 @@ export const Header = () => (
       LOGO
     </html.a>
     <NavLinks />
-    <html.ul>
-      {extras.map((extra) => (
-        <html.ol key={extra.label}>
-          <HugeiconsIcon icon={extra.icon} />
-        </html.ol>
-      ))}
-    </html.ul>
+    <NavTools />
   </html.nav>
 );
 

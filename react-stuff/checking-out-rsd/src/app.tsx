@@ -8,4 +8,6 @@ export const App = () => (
   </html.main>
 );
 
-const styles = css.create({ container: { backgroundColor: tokens.colorGrey } });
+const styles = css.create({
+  container: { backgroundColor: tokens.colorGrey, padding: "24px" },
+});
