@@ -24,6 +24,7 @@ const styles = css.create({
     borderRadius: "40px",
     height: "40px",
     paddingInline: "8px",
+    fontFamily: tokens.fontDisplay,
   },
   logoIcon: {
     backgroundColor: tokens.colorOrange,

@@ -8,4 +8,6 @@ export const tokens = css.defineVars({
   colorWhite: "hsl(0, 0%, 100%)",
   colorBlack: "hsl(60, 15%, 10%)",
   colorGrey: "hsl(0, 0%, 96%)",
+  fontDisplay: "'Clash Display', 'Archivo', system-ui, sans-serif",
+  fontBody: "'Archivo', system-ui, sans-serif",
 });
