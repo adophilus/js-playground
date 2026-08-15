@@ -46,6 +46,7 @@ const styles = css.create({
     paddingInline: "8px",
     height: "32px",
     borderRadius: "32px",
+    fontWeight: 200,
     borderWidth: "0px",
     cursor: "pointer",
   },
