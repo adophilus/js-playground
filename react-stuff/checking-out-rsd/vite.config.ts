@@ -22,7 +22,7 @@ const babelInclude = [
 export default defineConfig(() => ({
   plugins: [
     viteReact(),
-    viteBabel({ include: babelInclude, filter: /\.[cm]?[jt]sx$/ }),
+    viteBabel({ include: babelInclude, filter: /\.[cm]?[jt]sx?$/ }),
   ],
   resolve: { tsconfigPaths: true, extensions: allExtensions },
   optimizeDeps: {
