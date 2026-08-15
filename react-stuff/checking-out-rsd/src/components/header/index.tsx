@@ -5,20 +5,8 @@ import {
   InformationCircleIcon,
   Search01Icon,
 } from "@hugeicons/core-free-icons";
-import { tokens } from "@/styles/tokens.css";
-
-const items = [
-  {
-    label: "Overview",
-    link: "/",
-    isActive: true,
-  },
-  { label: "Activity", link: "/activity" },
-  { label: "Manage", link: "/manage" },
-  { label: "Program", link: "/program" },
-  { label: "Account", link: "/account" },
-  { label: "Reports", link: "/reports" },
-];
+import { tokens } from "../../styles/tokens.css";
+import { NavLinks } from "./nav-links";
 
 const extras = [
   { label: "Search", icon: Search01Icon },
@@ -27,16 +15,12 @@ const extras = [
 ];
 
 export const Header = () => (
-  <html.nav>
+  <html.nav style={styles.navContainer}>
     <html.a style={styles.logoContainer}>
-      <html.span></html.span>
+      <html.span style={styles.logoIcon} />
       LOGO
     </html.a>
-    <html.ul>
-      {items.map((item) => (
-        <html.ol key={item.link}>{item.label}</html.ol>
-      ))}
-    </html.ul>
+    <NavLinks />
     <html.ul>
       {extras.map((extra) => (
         <html.ol key={extra.label}>
@@ -48,5 +32,26 @@ export const Header = () => (
 );
 
 const styles = css.create({
-  logoContainer: { backgroundColor: tokens.colorWhite },
+  logoContainer: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    gap: "8px",
+    backgroundColor: tokens.colorWhite,
+    borderRadius: "40px",
+    height: "40px",
+    paddingInline: "8px",
+  },
+  logoIcon: {
+    backgroundColor: tokens.colorOrange,
+    width: "32px",
+    height: "32px",
+    borderRadius: "32px",
+  },
+  navContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+  },
 });
