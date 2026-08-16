@@ -27,6 +27,7 @@ body {
 		)
 		[content-end] minmax(var(--min-padding), 1fr)
 		[full-end];
+	gap: 1.5rem;
 }
 
 .full-bleed {
@@ -62,13 +63,18 @@ img.banner {
 	line-height: var(--text-heading-leading);
 }
 
-.half-split-right-bleed {
-	grid-column-start: 6;
+.half-split-left {
+	grid-column-start: 2;
+	grid-column-end: 10;
+}
+
+.right-bleed {
+	grid-column-start: 10;
 	grid-column-end: 15;
 }
 
-.half-split-right-bleed img {
+.right-bleed img {
 	width: 100%;
 	object-fit: cover;
-	height: 600px;
+	height: 100%;
 }
