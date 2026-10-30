@@ -1,0 +1,29 @@
+{
+  "name": "ai4-recon",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.15.1",
+  "scripts": {
+    "01": "tsx src/01-basic-generate.ts",
+    "02": "tsx src/02-chat-multiturn.ts",
+    "03": "tsx src/03-streaming.ts",
+    "04": "tsx src/04-tools.ts",
+    "05": "tsx src/05-openai-compat.ts",
+    "06": "tsx src/06-provider-swap.ts",
+    "07": "tsx src/07-openai-compat-pkg.ts",
+    "agent": "node src/agent.ts"
+  },
+  "dependencies": {
+    "@effect/ai-anthropic": "^4.1.0",
+    "@effect/ai-openai": "^4.1.0",
+    "@effect/ai-openai-compat": "^4.1.0",
+    "@effect/platform-node": "^4.1.0",
+    "effect": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}
