@@ -1,0 +1,2 @@
+@import "tailwindcss/preflight" layer(base);
+@react-strict-dom;

@@ -1,0 +1,160 @@
+@import url('https://api.fontshare.com/v2/css?f[]=gambetta@400,500,600,700&f[]=general-sans@300,400,500,600,700&display=swap');
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* ----------------------------------------------------------------------------
+   Gate84 design tokens (light)
+   Brand fonts: Gambetta (display serif) + General Sans (sans body/UI)
+---------------------------------------------------------------------------- */
+:root {
+  /* shadcn semantic tokens */
+  --background: #ffffff;
+  --foreground: #090909;
+  --card: #ffffff;
+  --card-foreground: #090909;
+  --popover: #ffffff;
+  --popover-foreground: #090909;
+  --primary: #090909;
+  --primary-foreground: #ffffff;
+  --secondary: #f4f4f4;
+  --secondary-foreground: #090909;
+  --muted: #f4f4f4;
+  --muted-foreground: #606060;
+  --accent: #f5f5f0;
+  --accent-foreground: #090909;
+  --destructive: #fb3748;
+  --destructive-foreground: #ffffff;
+  --border: #ececec;
+  --input: #f4f4f4;
+  --ring: #090909;
+  --radius: 0.5rem;
+
+  /* Gate84 brand palette */
+  --ink: #090909;
+  --ink-soft: #161616;
+  --body: #606060;
+  --body-soft: #4a4a4a;
+  --muted-fg: #9ea2ad;
+  --placeholder: #8e8e8e;
+  --cream: #f5f5f0;
+  --line: #f2f2f2;
+  --line-soft: #e8e8e8;
+  --line-strong: #dfdfdf;
+  --success: #1fc16b;
+  --live: #fb3748;
+  --orange: #ff5c02;
+  --star: #fdd835;
+
+  --font-display: 'Gambetta', Georgia, 'Times New Roman', serif;
+  --font-sans: 'General Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+@theme inline {
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* brand utilities: bg-cream, text-ink, text-body, border-line, text-success, ... */
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-body: var(--body);
+  --color-body-soft: var(--body-soft);
+  --color-muted-fg: var(--muted-fg);
+  --color-placeholder: var(--placeholder);
+  --color-cream: var(--cream);
+  --color-line: var(--line);
+  --color-line-soft: var(--line-soft);
+  --color-line-strong: var(--line-strong);
+  --color-success: var(--success);
+  --color-live: var(--live);
+  --color-orange: var(--orange);
+  --color-star: var(--star);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Layout helpers ---------------------------------------------------------- */
+.container-page {
+  width: 100%;
+  max-width: 80rem; /* 1280px */
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+@media (min-width: 768px) {
+  .container-page { padding-inline: 2rem; }
+}
+@media (min-width: 1280px) {
+  .container-page { padding-inline: 4rem; }
+}
+
+/* Display / serif headline utility */
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+/* Hide scrollbar (used for horizontal scrollers) */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Subtle entrance */
+@keyframes g84-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.rise-in {
+  animation: g84-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Marquee for the hero image column */
+@keyframes g84-scroll-y {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+.animate-scroll-y {
+  animation: g84-scroll-y 26s linear infinite;
+}
